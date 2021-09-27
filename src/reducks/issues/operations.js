@@ -1,8 +1,22 @@
 import { db, FirebaseTimestamp } from "../../firebase";
 import { push } from "connected-react-router";
-// import { deleteProductsAction, fetchProductsAction } from "./actions";
+import { fetchIssuesAction } from "./actions";
 
 const issuesRef = db.collection("issues")
+
+export const fetchIssues = () => {
+  return async (dispatch) => {
+    issuesRef.orderBy("updated_at", "desc").get()
+      .then(snapshots => {
+        const issueList = []
+        snapshots.forEach(snapshot => {
+          const issue = snapshot.data()
+          issueList.push(issue)
+        })
+        dispatch(fetchIssuesAction(issueList))
+      })
+  }
+}
 
 export const saveIssue = (name, subHead, description, price, images, uid) => {
   return async (dispatch) => {

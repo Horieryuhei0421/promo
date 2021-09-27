@@ -68,7 +68,7 @@ const IssueEdit = () => {
 
   return (
     <section>
-      <h2 className="u-text__headline u-text-center">商品の登録・編集</h2>
+      <h2 className="u-text__headline u-text-center">案件を記入する</h2>
       <div className="c-section-container">
         <ImageArea images={images} setImages={setImages} />
         <TextInput
@@ -114,7 +114,7 @@ const IssueEdit = () => {
         <div className="module-spacer--small" />
         <div className="center">
           <PrimaryButton
-            label={"商品情報の追加"}
+            label={"提案を募集する"}
             onClick={() =>
               dispatch(
                 saveIssue(name, subHead, description, price, images, uid)

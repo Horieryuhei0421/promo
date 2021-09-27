@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { push } from "connected-react-router";
 import { signOut } from "../reducks/users/operations";
 import Switch from "@mui/material/Switch";
+import IssueList from "../components/issues/IssueList";
 
 const AdviserPage = () => {
   const selector = useSelector((state) => state);
@@ -23,6 +24,7 @@ const AdviserPage = () => {
           color="primary"
         />
       </div>
+      <IssueList></IssueList>
     </div>
   );
 };
