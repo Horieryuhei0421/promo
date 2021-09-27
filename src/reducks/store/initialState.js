@@ -1,4 +1,7 @@
 const initialState = {
+  issues: {
+    list: []
+  },
   users: {
     isSignedIn: false,
     role: "",
