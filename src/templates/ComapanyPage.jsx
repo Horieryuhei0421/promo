@@ -1,21 +1,29 @@
-import React from "react";
+import { React } from "react";
 import { getUserId } from "../reducks/users/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { push } from "connected-react-router";
 import { signOut } from "../reducks/users/operations";
+import Switch from "@mui/material/Switch";
 
-const Home = () => {
+const CompanyPage = () => {
   const selector = useSelector((state) => state);
   const uid = getUserId(selector);
   const dispatch = useDispatch();
 
   return (
     <div>
-      <h2>Home</h2>
       <p>{uid}</p>
+      <h2>Company</h2>
       <button onClick={() => dispatch(signOut())}>SIGN OUT</button>
-      <div></div>
+      <div>
+        <Switch
+          checked={true}
+          onChange={() => dispatch(push("/adviserpage"))}
+          name="loading"
+          color="primary"
+        />
+      </div>
     </div>
   );
 };
-export default Home;
+export default CompanyPage;

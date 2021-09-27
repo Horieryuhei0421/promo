@@ -11,7 +11,7 @@ const Login = () => {
       <button
         onClick={() => {
           dispach(signInAction({ uid: "0001" }));
-          dispach(push("/"));
+          dispach(push("/adviserpage"));
         }}
       >
         ログインする
