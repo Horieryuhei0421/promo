@@ -29,6 +29,7 @@
   margin: 0 auto;
   max-width: 400px;
   padding: 1rem;
+  background-color: #e5e8eb;
   height: auto;
   width: calc(100% - 2rem);
 }
@@ -138,7 +139,7 @@
 }
 
 .u-text__headline {
-  color: #4dd0e1;
+  color: #575858;
   font-size: 1.563rem;
   margin: 0 auto 1rem auto;
 }

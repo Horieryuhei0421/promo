@@ -61,12 +61,30 @@ export const signIn = (email, password) => {
             username: data.username,
           }));
 
-          dispatch(push('/'))
+          dispatch(push('/adviserpage'))
         })
       }).catch(() => {
       });
   }
 };
+
+
+export const resetPassword = (email) => {
+  return async (dispatch) => {
+    if (email === "") {
+      alert("必修項目が未入力です")
+      return false
+    } else {
+      auth.sendPasswordResetEmail(email)
+        .then(() => {
+          alert("入力されたアドレスにパスワードリセット用のメールをお送りしました。")
+          dispatch(push("/signin"))
+        }).catch(() => {
+          alert("パスワードリセットに失敗しました。通信環境をご確認後に再度お試しください。")
+        })
+    }
+  }
+}
 
 export const signUp = (username, email, password, confirmPassword) => {
   return async (dispatch) => {
@@ -105,7 +123,7 @@ export const signUp = (username, email, password, confirmPassword) => {
             //     userId: uid,
             //     username: username,
             // });
-            dispatch(push('/'))
+            dispatch(push('/adviserpage'))
           })
         }
       }).catch((error) => {
@@ -114,16 +132,6 @@ export const signUp = (username, email, password, confirmPassword) => {
       })
   }
 }
-
-// export const signOut = () => {
-//   return async (dispatch) => {
-//     auth.signOut()
-//       .then(() => {
-//         dispatch(signOutAction())
-//         dispatch(push("./signin"))
-//       })
-//   }
-// }
 
 export const signOut = () => {
   return async (dispatch) => {
