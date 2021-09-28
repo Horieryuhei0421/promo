@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-// import IssueCard from "./IssueCard";
+import IssueCard from "./IssueCard";
 import { useDispatch } from "react-redux";
 import { fetchIssues } from "../../reducks/issues/operations";
 import { getIssues } from "../../reducks/issues/selectors";
@@ -25,14 +25,14 @@ const IssueList = () => {
       <div className="p-grid__row">
         {issues.length > 0 &&
           issues.map((issue) => (
-            // <IssueCard
-            //   key={issue.id}
-            //   id={issue.id}
-            //   name={issue.name}
-            //   images={issue.images}
-            //   price={issue.price}
-            // />
-            <h1>{issue.name}</h1>
+            <IssueCard
+              key={issue.id}
+              id={issue.id}
+              name={issue.name}
+              images={issue.images}
+              price={issue.price}
+            />
+            // <h1>{issue.name}</h1>
           ))}
       </div>
     </section>

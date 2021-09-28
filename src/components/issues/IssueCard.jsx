@@ -9,7 +9,7 @@ import { push } from "connected-react-router";
 import { useDispatch } from "react-redux";
 import { IconButton, Menu, MenuItem } from "@material-ui/core";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import { deleteProduct } from "../../reducks/products/operations";
+// import { deleteProduct } from "../../reducks/products/operations";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,6 +37,9 @@ const useStyles = makeStyles((theme) => ({
   price: {
     color: theme.palette.secondary.dark,
     fontSize: 16,
+  },
+  menu: {
+    position: "relative",
   },
 }));
 
@@ -69,7 +72,7 @@ const ProductCard = (props) => {
           <Typography color="textSecondary">{props.name}</Typography>
           <Typography className={classes.price}>¥{price}</Typography>
         </div>
-        <IconButton onClick={handleClick}>
+        <IconButton onClick={handleClick} className={classes.menu}>
           <MoreVertIcon />
         </IconButton>
         <Menu
@@ -82,16 +85,16 @@ const ProductCard = (props) => {
           <MenuItem
             onClick={() => {
               dispatch(push("/product/edit/" + props.id));
-              handleClose();
+              // handleClose();
             }}
           >
             編集する
           </MenuItem>
           <MenuItem
-            onClick={() => {
-              dispatch(deleteProduct(props.id));
-              handleClose();
-            }}
+          // onClick={() => {
+          //   dispatch(deleteProduct(props.id));
+          //   handleClose();
+          // }}
           >
             削除する
           </MenuItem>
