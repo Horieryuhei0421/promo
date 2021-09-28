@@ -24,7 +24,9 @@ const AdviserPage = () => {
           color="primary"
         />
       </div>
-      <IssueList></IssueList>
+      <div>
+        <IssueList></IssueList>
+      </div>
     </div>
   );
 };
