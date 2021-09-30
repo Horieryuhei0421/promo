@@ -65,10 +65,10 @@ const ProductCard = (props) => {
         className={classes.media}
         image={images[0].path}
         title=""
-        onClick={() => dispatch(push("/products/" + props.id))}
+        onClick={() => dispatch(push("/issues/" + props.id))}
       />
       <CardContent className={classes.content}>
-        <div onClick={() => dispatch(push("/products/" + props.id))}>
+        <div onClick={() => dispatch(push("/issues/" + props.id))}>
           <Typography color="textSecondary">{props.name}</Typography>
           <Typography className={classes.price}>¥{price}</Typography>
         </div>
@@ -83,10 +83,10 @@ const ProductCard = (props) => {
           onClose={handleClose}
         >
           <MenuItem
-            onClick={() => {
-              dispatch(push("/product/edit/" + props.id));
-              // handleClose();
-            }}
+          // onClick={() => {
+          //   dispatch(push("/issue/edit/" + props.id));
+          //   handleClose();
+          // }}
           >
             編集する
           </MenuItem>

@@ -8,6 +8,7 @@ import {
   ComapanyPage,
   Reset,
   IssueEdit,
+  IssueDetail,
 } from "./templates";
 import Auth from "./Auth";
 
@@ -21,6 +22,7 @@ const Router = () => {
       <Auth>
         <Route exact path={"/adviserpage"} component={AdviserPage} />
         <Route exact path={"/companypage"} component={ComapanyPage} />
+        <Route exact path={"/issues/:id"} component={IssueDetail} />
         <Route exact path={"/issue/edit"} component={IssueEdit} />
       </Auth>
     </Switch>
