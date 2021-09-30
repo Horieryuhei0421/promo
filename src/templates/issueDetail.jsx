@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core";
 import React, { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { db, FirebaseTimestamp } from "../firebase";
-// import { ImageSwiper, Sizetable } from "../components/products";
+import ImageSwiper from "../components/issues/ImageSwiper";
 // import { addProductToCart } from "../reducks/users/operations";
 
 const useStyles = makeStyles((theme) => ({
@@ -79,7 +79,7 @@ const IssueDetail = () => {
       {issue && (
         <div className="p-grid__row">
           <div className={classes.sliderBox}>
-            {/* <ImageSwiper images={issue.images} /> */}
+            <ImageSwiper images={issue.images} />
           </div>
           <div className={classes.detail}>
             <h2 className="u-text__headline">{issue.name}</h2>

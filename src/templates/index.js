@@ -1,5 +1,5 @@
 export { default as IssueEdit } from "./IssueEdit"
-export { default as IssueDetail } from "./issueDetail"
+export { default as IssueDetail } from "./IssueDetail"
 export { default as Top } from "./Top"
 export { default as SignUp } from "./SignUp"
 export { default as Reset } from "./Reset"
