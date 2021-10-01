@@ -38,37 +38,31 @@ export const listenAuthState = () => {
 
 export const signIn = (email, password) => {
   return async (dispatch) => {
-
-    return auth.signInWithEmailAndPassword(email, password)
+    if (email === "" || password === "") {
+      alert("必修項目が未入力です")
+      return false
+    }
+    auth.signInWithEmailAndPassword(email, password)
       .then(result => {
-        const userState = result.user
-        if (!userState) {
-          throw new Error('ユーザーIDを取得できません');
+        const user = result.user
+        if (user) {
+          const uid = user.uid
+
+          db.collection("users").doc(uid).get()
+            .then(snapshot => {
+              const data = snapshot.data()
+              dispatch(signInAction({
+                isSignedIn: true,
+                role: data.role,
+                uid: uid,
+                username: data.username
+              }))
+              dispatch(push("/adviserpage"))
+            })
         }
-        const userId = userState.uid;
-
-        return usersRef.doc(userId).get().then(snapshot => {
-          const data = snapshot.data();
-          if (!data) {
-            throw new Error('ユーザーデータが存在しません');
-          }
-
-          dispatch(signInAction({
-            customer_id: (data.customer_id) ? data.customer_id : "",
-            email: data.email,
-            isSignedIn: true,
-            role: data.role,
-            payment_method_id: (data.payment_method_id) ? data.payment_method_id : "",
-            uid: userId,
-            username: data.username,
-          }));
-
-          dispatch(push('/adviserpage'))
-        })
-      }).catch(() => {
-      });
+      })
   }
-};
+}
 
 
 export const resetPassword = (email) => {

@@ -2,6 +2,7 @@ import { makeStyles } from "@material-ui/core";
 import React, { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { db, FirebaseTimestamp } from "../firebase";
+import { push } from "connected-react-router";
 import ImageSwiper from "../components/issues/ImageSwiper";
 // import { addProductToCart } from "../reducks/users/operations";
 
@@ -75,22 +76,27 @@ const IssueDetail = () => {
   //   [issue]
   // );
   return (
-    <section className="c-section-wrapin">
-      {issue && (
-        <div className="p-grid__row">
-          <div className={classes.sliderBox}>
-            <ImageSwiper images={issue.images} />
-          </div>
-          <div className={classes.detail}>
-            <h2 className="u-text__headline">{issue.name}</h2>
-            <p className={classes.price}>¥{issue.price.toLocaleString()}</p>
+    <>
+      <button onClick={() => dispatch(push("/adviserpage"))}>
+        ホームページへ
+      </button>
+      <section className="c-section-wrapin">
+        {issue && (
+          <div className="p-grid__row">
+            <div className={classes.sliderBox}>
+              <ImageSwiper images={issue.images} />
+            </div>
+            <div className={classes.detail}>
+              <h2 className="u-text__headline">{issue.name}</h2>
+              <p className={classes.price}>¥{issue.price.toLocaleString()}</p>
 
-            <div className="module-spacer--small" />
-            <p>{issue.description}</p>
+              <div className="module-spacer--small" />
+              <p>{issue.description}</p>
+            </div>
           </div>
-        </div>
-      )}
-    </section>
+        )}
+      </section>
+    </>
   );
 };
 export default IssueDetail;

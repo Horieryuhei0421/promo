@@ -1,5 +1,5 @@
 import { React } from "react";
-import { getUserId } from "../reducks/users/selectors";
+import { getUserName } from "../reducks/users/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { push } from "connected-react-router";
 import { signOut } from "../reducks/users/operations";
@@ -8,14 +8,21 @@ import IssueList from "../components/issues/IssueList";
 
 const AdviserPage = () => {
   const selector = useSelector((state) => state);
-  const uid = getUserId(selector);
+  const username = getUserName(selector);
   const dispatch = useDispatch();
 
   return (
     <div>
-      <p>{uid}</p>
+      <h1>{username}</h1>
+      <div>
+        <button onClick={() => dispatch(signOut())}>SIGN OUT</button>
+      </div>
+      <div>
+        <button onClick={() => dispatch(push("/sales"))}>
+          売り上げページへ
+        </button>
+      </div>
       <h2>Adviser</h2>
-      <button onClick={() => dispatch(signOut())}>SIGN OUT</button>
       <div>
         <Switch
           checked={false}

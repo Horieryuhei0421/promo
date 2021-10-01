@@ -10,6 +10,8 @@ import {
   Reset,
   IssueEdit,
   IssueDetail,
+  Sales,
+  MyIssueList,
 } from "./templates";
 import Auth from "./Auth";
 
@@ -22,9 +24,11 @@ const Router = () => {
       <Route exact path={"/signin/reset"} component={Reset} />
       <Auth>
         <Route exact path={"/adviserpage"} component={AdviserPage} />
+        <Route exact path={"/sales"} component={Sales} />
         <Route exact path={"/companypage"} component={ComapanyPage} />
         <Route exact path={"/companysetting"} component={CompanySetting} />
         <Route exact path={"/issues/:id"} component={IssueDetail} />
+        <Route exact path={"/myissuelist"} component={MyIssueList} />
         <Route exact path={"/issue/edit"} component={IssueEdit} />
       </Auth>
     </Switch>
