@@ -3,6 +3,7 @@ const initialState = {
     list: []
   },
   users: {
+    company: [],
     isSignedIn: false,
     role: "",
     uid: "",
