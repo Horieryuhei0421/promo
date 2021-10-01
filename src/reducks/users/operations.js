@@ -1,6 +1,8 @@
 import { signInAction, signOutAction } from "./actions";
 import { push } from "connected-react-router";
 import { auth, db, FirebaseTimestamp } from "../../firebase/index"
+import { useDispatch, useSelector } from "react-redux";
+import { getUserId } from "./selectors";
 
 const usersRef = db.collection('users')
 
@@ -145,3 +147,38 @@ export const signOut = () => {
     })
   }
 };
+
+
+// export const addCompanySetting = (companyname, uid) => {
+//   return async (dispatch, getState) => {
+//     const uid = getState().users.uid;
+//     const companyRef = db.collection('users').doc(uid).collection('company').doc();
+//     addedcompany['companyId'] = companyRef.id;
+//     await companyRef.set(addedcompany);
+//     dispatch(push('/companypage'))
+//   }
+// }
+
+export const addCompanySetting = (companyname, uid) => {
+  return async (dispatch, getState) => {
+    const timestamp = FirebaseTimestamp.now()
+
+
+    const data = {
+      companyname: companyname,
+      uid: uid
+    }
+
+    const companyRef = db.collection('users').doc(uid).collection('company').doc();
+    const id = companyRef.id
+    data.id = id
+    data.created_at = timestamp
+
+    return db.collection('users').doc(uid).collection('company').doc(id).set(data, { merge: true })
+      .then(() => {
+        dispatch(push("/adviserpage"))
+      }).catch((error) => {
+        throw new Error(error)
+      })
+  }
+}

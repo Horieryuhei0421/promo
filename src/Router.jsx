@@ -6,6 +6,7 @@ import {
   SignIn,
   AdviserPage,
   ComapanyPage,
+  CompanySetting,
   Reset,
   IssueEdit,
   IssueDetail,
@@ -22,6 +23,7 @@ const Router = () => {
       <Auth>
         <Route exact path={"/adviserpage"} component={AdviserPage} />
         <Route exact path={"/companypage"} component={ComapanyPage} />
+        <Route exact path={"/companysetting"} component={CompanySetting} />
         <Route exact path={"/issues/:id"} component={IssueDetail} />
         <Route exact path={"/issue/edit"} component={IssueEdit} />
       </Auth>

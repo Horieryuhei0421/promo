@@ -15,9 +15,6 @@ const CompanyPage = () => {
       <p>{uid}</p>
       <h2>Company</h2>
       <button onClick={() => dispatch(signOut())}>SIGN OUT</button>
-      <button onClick={() => dispatch(push("/issue/edit"))}>
-        案件提案しちゃおっと！
-      </button>
       <div>
         <Switch
           checked={true}
@@ -25,6 +22,14 @@ const CompanyPage = () => {
           name="loading"
           color="primary"
         />
+      </div>
+      <div>
+        <button onClick={() => dispatch(push("/issue/edit"))}>
+          案件提案しちゃおっと！
+        </button>
+        <button onClick={() => dispatch(push("/companysetting"))}>
+          会社の設定を書く
+        </button>
       </div>
     </div>
   );
