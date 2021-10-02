@@ -12,6 +12,11 @@ export const UsersReducer = (state = initialState.users, action) => {
       return {
         ...initialState.users,
       };
+    case Actions.COMPANY_ACTION:
+      return {
+        ...state,
+        ...action.payload
+      };
     default:
       return state
   }

@@ -9,7 +9,11 @@ import { FirebaseTimestamp } from "../firebase";
 const CompanySetting = () => {
   const dispatch = useDispatch();
 
-  const [companyname, setCompanyname] = useState("");
+  const [companyname, setCompanyname] = useState(""),
+    [companyaddress, setCompanyaddress] = useState(""),
+    [companytel, setCompanytel] = useState(""),
+    [companydescription, setCompanydescription] = useState("");
+  // [images, setImages] = useState("");
 
   const selector = useSelector((state) => state);
   const uid = getUserId(selector);
@@ -19,6 +23,27 @@ const CompanySetting = () => {
       setCompanyname(event.target.value);
     },
     [setCompanyname]
+  );
+
+  const inputAddress = useCallback(
+    (event) => {
+      setCompanyaddress(event.target.value);
+    },
+    [setCompanyaddress]
+  );
+
+  const inputTel = useCallback(
+    (event) => {
+      setCompanytel(event.target.value);
+    },
+    [setCompanytel]
+  );
+
+  const inputDescription = useCallback(
+    (event) => {
+      setCompanydescription(event.target.value);
+    },
+    [setCompanydescription]
   );
 
   return (
@@ -43,12 +68,52 @@ const CompanySetting = () => {
             type={"text"}
             onChange={inputCompanyname}
           />
+          <TextInput
+            fullWidth={true}
+            label={"住所"}
+            multiline={false}
+            required={true}
+            rows={1}
+            value={companyaddress}
+            type={"text"}
+            onChange={inputAddress}
+          />
+          <TextInput
+            fullWidth={true}
+            label={"電話番号"}
+            multiline={false}
+            required={true}
+            rows={1}
+            value={companytel}
+            type={"number"}
+            onChange={inputTel}
+          />
+          <TextInput
+            fullWidth={true}
+            label={"会社の詳細等"}
+            multiline={true}
+            required={true}
+            rows={6}
+            value={companydescription}
+            type={"text"}
+            onChange={inputDescription}
+          />
 
           <div className="module-spacer--medium" />
           <div className="center">
             <PrimaryButton
               label={"設定する"}
-              onClick={() => dispatch(addCompanySetting(companyname, uid))}
+              onClick={() =>
+                dispatch(
+                  addCompanySetting(
+                    companyname,
+                    companyaddress,
+                    companytel,
+                    companydescription,
+                    uid
+                  )
+                )
+              }
             />
           </div>
         </div>
