@@ -3,11 +3,14 @@ const initialState = {
     list: []
   },
   users: {
-    company: [],
     isSignedIn: false,
     role: "",
     uid: "",
-    username: ""
+    username: "",
+    companyname: "",
+    companyaddress: "",
+    companytel: "",
+    companydescription: "",
   }
 }
 

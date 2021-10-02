@@ -6,10 +6,43 @@ export const signInAction = (userState) => {
       isSignedIn: true,
       role: userState.role,
       uid: userState.uid,
-      username: userState.name
+      username: userState.username,
+      companyname: userState.companyname,
+      companyaddress: userState.companyaddress,
+      companytel: userState.companytel,
+      companydescription: userState.companydescription,
     }
   }
 };
+
+export const COMPANY_ACTION = "COMPANY_ACTION"
+export const companyAction = (userState) => {
+  return {
+    type: "COMPANY_ACTION",
+    payload: {
+      companyname: userState.companyname,
+      companyaddress: userState.address,
+      companytel: userState.tel,
+      companydescription: userState.description,
+      uid: userState.uid
+    }
+  }
+};
+
+// export const COMPANY_SETTING = "COMPANY_SETTING"
+// export const companySettingAction = (settingState) => {
+//   return {
+//     type: "COMPANY_SETTING",
+//     payload: {
+//       companyname: settingState.companyname,
+//       address: settingState.address,
+//       tel: settingState.tel,
+//       description: settingState.description,
+//       uid: settingState.uid
+//     }
+
+//   }
+// };
 
 
 

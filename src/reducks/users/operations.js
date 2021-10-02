@@ -1,4 +1,4 @@
-import { signInAction, signOutAction } from "./actions";
+import { signInAction, signOutAction, companyAction } from "./actions";
 import { push } from "connected-react-router";
 import { auth, db, FirebaseTimestamp } from "../../firebase/index"
 import { useDispatch, useSelector } from "react-redux";
@@ -17,16 +17,18 @@ export const listenAuthState = () => {
             if (!data) {
               throw new Error('ユーザーデータが存在しません。')
             }
-
             // Update logged in user state
             dispatch(signInAction({
               customer_id: (data.customer_id) ? data.customer_id : "",
               email: data.email,
               isSignedIn: true,
-              payment_method_id: (data.payment_method_id) ? data.payment_method_id : "",
               role: data.role,
               uid: user.uid,
               username: data.username,
+              companyname: data.companyname,
+              companyaddress: data.companyaddress,
+              companytel: data.companytel,
+              companydescription: data.companydescription,
             }))
           })
       } else {
@@ -38,37 +40,40 @@ export const listenAuthState = () => {
 
 export const signIn = (email, password) => {
   return async (dispatch) => {
-
-    return auth.signInWithEmailAndPassword(email, password)
+    if (email === "" || password === "") {
+      alert("必修項目が未入力です")
+      return false
+    }
+    auth.signInWithEmailAndPassword(email, password)
       .then(result => {
-        const userState = result.user
-        if (!userState) {
-          throw new Error('ユーザーIDを取得できません');
+        const user = result.user
+        if (user) {
+          const uid = user.uid
+
+          db.collection("users").doc(uid).get()
+            .then(snapshot => {
+              const data = snapshot.data()
+              dispatch(signInAction({
+                isSignedIn: true,
+                role: data.role,
+                uid: uid,
+                username: data.username,
+                companyname: data.companyname,
+                companyaddress: data.companyaddress,
+                companytel: data.companytel,
+                companydescription: data.companydescription,
+              }))
+              // db.collection('users').doc(uid).collection('company').get()
+              //   .then(snapshots => {
+              //     const datas = snapshots.data()
+              //     console.log(datas)
+              //   })
+              dispatch(push("/adviserpage"))
+            })
         }
-        const userId = userState.uid;
-
-        return usersRef.doc(userId).get().then(snapshot => {
-          const data = snapshot.data();
-          if (!data) {
-            throw new Error('ユーザーデータが存在しません');
-          }
-
-          dispatch(signInAction({
-            customer_id: (data.customer_id) ? data.customer_id : "",
-            email: data.email,
-            isSignedIn: true,
-            role: data.role,
-            payment_method_id: (data.payment_method_id) ? data.payment_method_id : "",
-            uid: userId,
-            username: data.username,
-          }));
-
-          dispatch(push('/adviserpage'))
-        })
-      }).catch(() => {
-      });
+      })
   }
-};
+}
 
 
 export const resetPassword = (email) => {
@@ -115,16 +120,14 @@ export const signUp = (username, email, password, confirmPassword) => {
             payment_method_id: "",
             uid: uid,
             updated_at: timestamp,
-            username: username
+            username: username,
+            companyname: "未記入",
+            companyaddress: "未記入",
+            companytel: "未記入",
+            companydescription: "未記入",
           };
 
           usersRef.doc(uid).set(userInitialData).then(async () => {
-            // const sendThankYouMail = functions.httpsCallable('sendThankYouMail');
-            // await sendThankYouMail({
-            //     email: email,
-            //     userId: uid,
-            //     username: username,
-            // });
             dispatch(push('/adviserpage'))
           })
         }
@@ -159,24 +162,22 @@ export const signOut = () => {
 //   }
 // }
 
-export const addCompanySetting = (companyname, uid) => {
+export const addCompanySetting = (companyname, companyaddress, companytel, companydescription, uid) => {
   return async (dispatch, getState) => {
     const timestamp = FirebaseTimestamp.now()
 
-
     const data = {
       companyname: companyname,
+      companyaddress: companyaddress,
+      companytel: companytel,
+      companydescription: companydescription,
       uid: uid
     }
 
-    const companyRef = db.collection('users').doc(uid).collection('company').doc();
-    const id = companyRef.id
-    data.id = id
-    data.created_at = timestamp
-
-    return db.collection('users').doc(uid).collection('company').doc(id).set(data, { merge: true })
-      .then(() => {
-        dispatch(push("/adviserpage"))
+    return db.collection('users').doc(uid).set(data, { merge: true })
+      .then(snapshot => {
+        dispatch(companyAction(data))
+        dispatch(push("/companypage"))
       }).catch((error) => {
         throw new Error(error)
       })

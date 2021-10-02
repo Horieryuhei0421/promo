@@ -12,7 +12,25 @@ export const getUserId = createSelector(
   state => state.uid
 )
 
-export const getCompanySetting = createSelector(
+export const getUserName = createSelector(
   [usersSelector],
-  state => state.company
-);
+  state => state.username
+)
+
+export const getCompanyName = createSelector(
+  [usersSelector],
+  state => state.companyname
+)
+
+export const getCompanyAddress = createSelector(
+  [usersSelector],
+  state => state.companyaddress
+)
+export const getCompanyTel = createSelector(
+  [usersSelector],
+  state => state.companytel
+)
+export const getCompanyDescription = createSelector(
+  [usersSelector],
+  state => state.companydescription
+)
