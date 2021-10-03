@@ -57,9 +57,9 @@ const HeaderMenus = (props) => {
           <ShoppingCart />
         </Badge>
       </IconButton> */}
-      <IconButton>
+      {/* <IconButton>
         <Favorite />
-      </IconButton>
+      </IconButton> */}
       <IconButton onClick={(event) => props.handleDrawerToggle(event)}>
         <Menu />
       </IconButton>

@@ -14,11 +14,6 @@ const AdviserPage = () => {
   return (
     <div>
       <h1>{username}</h1>
-      <div>
-        <button onClick={() => dispatch(push("/sales"))}>
-          売り上げページへ
-        </button>
-      </div>
       <h2>Adviser</h2>
       <div>
         <Switch

@@ -15,6 +15,12 @@ import { push } from "connected-react-router";
 import { useDispatch } from "react-redux";
 import { signOut } from "../../reducks/users/operations";
 import { db } from "../../firebase";
+import {
+  notice_icon,
+  check_icon,
+  home_icon,
+  profit_icon,
+} from "../../assets/img/index";
 
 const useStyles = makeStyles((theme) => ({
   drawer: {
@@ -47,24 +53,45 @@ const ClosableDrawer = (props) => {
   const menus = [
     {
       func: selectMenu,
-      label: "商品登録",
-      icon: <AddCircle />,
-      id: "register",
-      value: "/product/edit",
+      label: "ホーム",
+      icon: <img src={home_icon} width={22} />,
+      id: "home",
+      value: "/adviserpage",
     },
     {
       func: selectMenu,
-      label: "注文履歴",
+      label: "通知",
+      icon: <img src={notice_icon} width={22} />,
+      id: "notice",
+      value: "/notice",
+    },
+    {
+      func: selectMenu,
+      label: "チェックリスト",
+      icon: <img src={check_icon} width={22} />,
+      id: "checklist",
+      value: "/checklist",
+    },
+    {
+      func: selectMenu,
+      label: "売上一覧",
+      icon: <img src={profit_icon} width={22} />,
+      id: "sales",
+      value: "/sales",
+    },
+    {
+      func: selectMenu,
+      label: "購入履歴",
       icon: <History />,
       id: "history",
-      value: "/order/history",
+      value: "/history",
     },
     {
       func: selectMenu,
       label: "プロフィール",
       icon: <Person />,
       id: "profile",
-      value: "/user/mypage",
+      value: "/profile",
     },
   ];
 
