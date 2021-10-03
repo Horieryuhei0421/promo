@@ -26,7 +26,6 @@ const CompanyPage = () => {
   return (
     <div>
       <h1>{username}</h1>
-      <button onClick={() => dispatch(signOut())}>SIGN OUT</button>
       <div>
         <button onClick={() => dispatch(push("/issue/edit"))}>
           アイデアを募集する

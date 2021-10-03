@@ -15,9 +15,6 @@ const AdviserPage = () => {
     <div>
       <h1>{username}</h1>
       <div>
-        <button onClick={() => dispatch(signOut())}>SIGN OUT</button>
-      </div>
-      <div>
         <button onClick={() => dispatch(push("/sales"))}>
           売り上げページへ
         </button>
