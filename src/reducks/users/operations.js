@@ -164,6 +164,10 @@ export const signOut = () => {
 
 export const addCompanySetting = (companyname, companyaddress, companytel, companydescription, uid) => {
   return async (dispatch, getState) => {
+    if (companyname === "" || companyaddress === "" || companytel === "" || companydescription === "") {
+      alert('無記入の箇所があります。ご確認ください。')
+      return false
+    }
     const timestamp = FirebaseTimestamp.now()
 
     const data = {
@@ -178,6 +182,7 @@ export const addCompanySetting = (companyname, companyaddress, companytel, compa
       .then(snapshot => {
         dispatch(companyAction(data))
         dispatch(push("/companypage"))
+        window.location.reload();
       }).catch((error) => {
         throw new Error(error)
       })
