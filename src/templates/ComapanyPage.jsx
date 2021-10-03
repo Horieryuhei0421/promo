@@ -1,4 +1,4 @@
-import { React, useEffect } from "react";
+import { React, useEffect, useState } from "react";
 import {
   getUserName,
   getCompanyName,
@@ -10,6 +10,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { push } from "connected-react-router";
 import { signOut } from "../reducks/users/operations";
 import Switch from "@mui/material/Switch";
+import Box from "@mui/material/Box";
+import Fab from "@mui/material/Fab";
+import AddIcon from "@mui/icons-material/Add";
+import { IconButton, Menu, MenuItem } from "@material-ui/core";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 const CompanyPage = () => {
   const selector = useSelector((state) => state);
@@ -23,24 +28,18 @@ const CompanyPage = () => {
   const query = window.location.search;
   useEffect(() => {}, [query]);
 
+  const [anchorEl, setAnchorEL] = useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEL(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEL(null);
+  };
+
   return (
     <div>
       <h1>{username}</h1>
-      <div>
-        <button onClick={() => dispatch(push("/issue/edit"))}>
-          アイデアを募集する
-        </button>
-      </div>
-      <div>
-        <button onClick={() => dispatch(push("/myissuelist"))}>
-          タスク一覧を見る
-        </button>
-      </div>
-      <div>
-        <button onClick={() => dispatch(push("/companysetting"))}>
-          会社の設定を書く
-        </button>
-      </div>
       <h2>Company</h2>
       <div>
         <Switch
@@ -56,6 +55,45 @@ const CompanyPage = () => {
         <h1>電話番号:{companytel}</h1>
         <h1>会社の詳細:{companydescription}</h1>
       </div>
+      <Box sx={{ "& > :not(style)": { m: 1 } }}>
+        <Fab color="primary" aria-label="add">
+          <IconButton onClick={handleClick}>
+            <AddIcon />
+          </IconButton>
+          <Menu
+            id="menu-appbar"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+          >
+            <MenuItem
+              onClick={() => {
+                dispatch(push("/issue/edit"));
+                handleClose();
+              }}
+            >
+              アイデアを募集する
+            </MenuItem>
+            <MenuItem
+              onClick={() => {
+                dispatch(push("/myissuelist"));
+                handleClose();
+              }}
+            >
+              タスク一覧を見る
+            </MenuItem>
+            <MenuItem
+              onClick={() => {
+                dispatch(push("/companysetting"));
+                handleClose();
+              }}
+            >
+              会社の設定を書く
+            </MenuItem>
+          </Menu>
+        </Fab>
+      </Box>
     </div>
   );
 };
