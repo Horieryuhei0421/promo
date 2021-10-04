@@ -7,10 +7,12 @@ import { Header } from "./components/Header";
 const App = () => {
   return (
     <>
-      <Header />
-      <main className="c-main">
-        <Router />
-      </main>
+      <div className="body-background">
+        <Header />
+        <main className="c-main">
+          <Router />
+        </main>
+      </div>
     </>
   );
 };

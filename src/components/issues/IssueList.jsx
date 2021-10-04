@@ -21,21 +21,23 @@ const IssueList = () => {
   }, [query]);
 
   return (
-    <section className="c-section-wrapin">
-      <div className="p-grid__row">
-        {issues.length > 0 &&
-          issues.map((issue) => (
-            <IssueCard
-              key={issue.id}
-              id={issue.id}
-              name={issue.name}
-              images={issue.images}
-              price={issue.price}
-            />
-            // <h1>{issue.name}</h1>
-          ))}
-      </div>
-    </section>
+    <div className="main-pop-flame">
+      <section className="c-section-wrapin">
+        <div className="p-grid__row">
+          {issues.length > 0 &&
+            issues.map((issue) => (
+              <IssueCard
+                key={issue.id}
+                id={issue.id}
+                name={issue.name}
+                images={issue.images}
+                price={issue.price}
+              />
+              // <h1>{issue.name}</h1>
+            ))}
+        </div>
+      </section>
+    </div>
   );
 };
 

@@ -8,18 +8,19 @@ import { getSignedIn } from "../../reducks/users/selectors";
 import { push } from "connected-react-router";
 import HeaderMenus from "./HeaderMenus";
 import ClosableDrawer from "./ClosableDrawer";
+import { promo_tag } from "../../assets/img";
 
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
   },
   menuBar: {
-    backgroundColor: "#fff",
+    backgroundColor: "#f4f4f4",
     color: "#444",
   },
   toolbar: {
     margin: "0 auto",
-    maxWidth: 1024,
+    maxWidth: 1400,
     width: "100%",
   },
   iconButtons: {
@@ -53,9 +54,9 @@ const Header = () => {
       <AppBar position="fixed" className={classes.menuBar}>
         <Toolbar className={classes.toolbar}>
           <img
-            src={logo}
+            src={promo_tag}
             alt="TorahackLogo"
-            width="128px"
+            width="130px"
             onClick={() => dispatch(push("/adviserpage"))}
           />
           {isSignedIn && (

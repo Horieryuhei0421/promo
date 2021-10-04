@@ -10,16 +10,21 @@ import { useDispatch } from "react-redux";
 import { IconButton, Menu, MenuItem } from "@material-ui/core";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 // import { deleteProduct } from "../../reducks/products/operations";
+import { theme } from "../../assets/theme";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     [theme.breakpoints.down("sm")]: {
-      margin: 8,
-      width: "calc(50% - 16px)",
+      margin: 16,
+      width: "100%",
+    },
+    [theme.breakpoints.up("sm")]: {
+      margin: 16,
+      width: "calc(50% - 32px)",
     },
     [theme.breakpoints.up("md")]: {
       margin: 16,
-      width: "calc(33.3333% - 32px)",
+      width: "calc(33.33333% - 32px)",
     },
   },
   content: {
@@ -35,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: "100%",
   },
   price: {
-    color: theme.palette.secondary.dark,
+    color: theme.palette.primary.main,
     fontSize: 16,
   },
   menu: {
@@ -61,45 +66,47 @@ const ProductCard = (props) => {
   const price = props.price.toLocaleString();
   return (
     <Card className={classes.root}>
-      <CardMedia
-        className={classes.media}
-        image={images[0].path}
-        title=""
-        onClick={() => dispatch(push("/issues/" + props.id))}
-      />
-      <CardContent className={classes.content}>
-        <div onClick={() => dispatch(push("/issues/" + props.id))}>
-          <Typography color="textSecondary">{props.name}</Typography>
-          <Typography className={classes.price}>¥{price}</Typography>
-        </div>
-        <IconButton onClick={handleClick} className={classes.menu}>
-          <MoreVertIcon />
-        </IconButton>
-        <Menu
-          id="menu-appbar"
-          anchorEl={anchorEl}
-          keepMounted
-          open={Boolean(anchorEl)}
-          onClose={handleClose}
-        >
-          <MenuItem
-          // onClick={() => {
-          //   dispatch(push("/issue/edit/" + props.id));
-          //   handleClose();
-          // }}
+      <div className="p-grid__column2">
+        <CardMedia
+          className={classes.media}
+          image={images[0].path}
+          title=""
+          onClick={() => dispatch(push("/issues/" + props.id))}
+        />
+        <CardContent className={classes.content}>
+          <div onClick={() => dispatch(push("/issues/" + props.id))}>
+            <Typography color="textSecondary">{props.name}</Typography>
+            <Typography className={classes.price}>¥{price}</Typography>
+          </div>
+          <IconButton onClick={handleClick} className={classes.menu}>
+            <MoreVertIcon />
+          </IconButton>
+          <Menu
+            id="menu-appbar"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
           >
-            編集する
-          </MenuItem>
-          <MenuItem
-          // onClick={() => {
-          //   dispatch(deleteProduct(props.id));
-          //   handleClose();
-          // }}
-          >
-            削除する
-          </MenuItem>
-        </Menu>
-      </CardContent>
+            <MenuItem
+            // onClick={() => {
+            //   dispatch(push("/issue/edit/" + props.id));
+            //   handleClose();
+            // }}
+            >
+              編集する
+            </MenuItem>
+            <MenuItem
+            // onClick={() => {
+            //   dispatch(deleteProduct(props.id));
+            //   handleClose();
+            // }}
+            >
+              削除する
+            </MenuItem>
+          </Menu>
+        </CardContent>
+      </div>
     </Card>
   );
 };

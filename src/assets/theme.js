@@ -31,6 +31,6 @@ export const theme = createMuiTheme({
       A200: "#aaaaaa",
       A400: "#303030",
       A700: "#616161"
-    }
+    },
   },
 });

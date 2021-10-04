@@ -48,7 +48,6 @@ const CompanySetting = () => {
 
   return (
     <div>
-      <h2>CompanySeeting</h2>
       <div>
         <button onClick={() => dispatch(push("/companypage"))}>
           会社のホームに戻る
