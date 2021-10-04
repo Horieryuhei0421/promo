@@ -14,7 +14,8 @@
 
 /*********** Section ***********/
 .c-main {
-  padding: 96px 0;
+  padding: 80px 0px 15px 0px;
+  min-height: 100vh;
 }
 .c-section-wrapin {
   margin: 0 auto;
@@ -27,33 +28,15 @@
 
 .c-section-container {
   margin: 0 auto;
-  max-width: 400px;
+  max-width: 575px;
   padding: 1rem;
-  background-color: #e5e8eb;
+  background-color: #f4f4f4;
+
   height: auto;
   width: calc(100% - 2rem);
-}
-
-.c-section__loading {
-  align-items: center;
-  background: rgba(255, 255, 255, 0.7);
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  opacity: 0.9;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100%;
-  z-index: 9999;
-}
-
-.c-section__loading > p {
-  color: #444;
-  font-weight: 600;
-  margin-top: 1rem;
-  text-align: center;
+  border-radius: 7px;
+  background-color: #f4f4f4;
+  box-shadow: inset -6px -6px 10px #cecece, inset 6px 6px 10px #e7e7e7;
 }
 
 .center {
@@ -75,6 +58,7 @@
 .p-grid__list-images {
   display: flex;
   flex-flow: wrap;
+  max-width: 60%;
 }
 
 .p-grid__list-images > .p-media__thumb {
@@ -139,7 +123,7 @@
 }
 
 .u-text__headline {
-  color: #575858;
+  color: #3894ff;
   font-size: 1.563rem;
   margin: 0 auto 1rem auto;
 }
@@ -170,5 +154,62 @@
   /*********** Module Spacer ***********/
   .module-spacer--medium {
     height: 48px;
+  }
+}
+
+/*********** Promo Original ***********/
+h1 {
+  font-size: larger;
+}
+
+/*********** Promo  ***********/
+
+.body-background {
+  background: #e0e0e0;
+  text-align: center;
+}
+
+.main-back {
+  border-radius: 0px;
+  background-color: #f4f4f4;
+  /* box-shadow: inset -6px -6px 10px #a1a1a1, inset -6px -6px 10px #ffffff; */
+  margin: 0em 1em;
+  font-style: inherit;
+}
+
+.main-pop-flame {
+  padding: 5em 4em;
+  font-weight: bold;
+  border-radius: 7px;
+  background-color: #e0e0e0;
+  box-shadow: inset 10px 10px 22px #c9c9c9, inset -10px -10px 10px #ffffff;
+  margin: 0em 8em;
+  min-height: 60vh;
+}
+
+@media screen and (max-width: 1000px) {
+  .main-pop-flame {
+    margin: 0em 2em;
+    padding: 5em 1em;
+  }
+}
+
+.top-heignt {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.button-position {
+  position: fixed;
+  /* right: 20px;
+  bottom: 20px; */
+  right: 12rem;
+  bottom: 6rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .button-position {
+    right: 20px;
+    bottom: 20px;
   }
 }

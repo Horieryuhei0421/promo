@@ -39,61 +39,78 @@ const CompanyPage = () => {
 
   return (
     <div>
-      <h1>{username}</h1>
-      <h2>Company</h2>
-      <div>
-        <Switch
-          checked={true}
-          onChange={() => dispatch(push("/adviserpage"))}
-          name="loading"
-          color="primary"
-        />
+      <div className="main-back">
+        <div className="top-heignt">
+          <h1>{username}</h1>
+        </div>
+        <div>
+          <h2>Company</h2>
+          <div>
+            <Switch
+              checked={true}
+              onChange={() => dispatch(push("/adviserpage"))}
+              name="loading"
+              color="primary"
+            />
+          </div>
+        </div>
+        <div>
+          <div className="module-spacer--medium" />
+          <div className="main-pop-flame">
+            <div>
+              <h1>会社名:{companyname}</h1>
+              <h1>住所:{companyaddress}</h1>
+              <h1>電話番号:{companytel}</h1>
+              <h1>会社の詳細:{companydescription}</h1>
+            </div>
+          </div>
+        </div>
+        <div className="module-spacer--medium" />
+        <div className="button-position">
+          <Box sx={{ "& > :not(style)": { m: 1 } }}>
+            <Fab size="large" color="primary" aria-label="add">
+              <IconButton onClick={handleClick}>
+                <AddIcon />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                keepMounted
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+              >
+                <MenuItem
+                  onClick={() => {
+                    dispatch(push("/issue/edit"));
+                    handleClose();
+                  }}
+                  style={{ fontSize: "1.2em" }}
+                >
+                  アイデアを募集する
+                </MenuItem>
+                <MenuItem
+                  onClick={() => {
+                    dispatch(push("/myissuelist"));
+                    handleClose();
+                  }}
+                  style={{ fontSize: "1.2em" }}
+                >
+                  タスク一覧を見る
+                </MenuItem>
+                <MenuItem
+                  onClick={() => {
+                    dispatch(push("/companysetting"));
+                    handleClose();
+                  }}
+                  style={{ fontSize: "1.2em" }}
+                >
+                  会社の設定を書く
+                </MenuItem>
+              </Menu>
+            </Fab>
+          </Box>
+        </div>
       </div>
-      <div>
-        <h1>会社名:{companyname}</h1>
-        <h1>住所:{companyaddress}</h1>
-        <h1>電話番号:{companytel}</h1>
-        <h1>会社の詳細:{companydescription}</h1>
-      </div>
-      <Box sx={{ "& > :not(style)": { m: 1 } }}>
-        <Fab color="primary" aria-label="add">
-          <IconButton onClick={handleClick}>
-            <AddIcon />
-          </IconButton>
-          <Menu
-            id="menu-appbar"
-            anchorEl={anchorEl}
-            keepMounted
-            open={Boolean(anchorEl)}
-            onClose={handleClose}
-          >
-            <MenuItem
-              onClick={() => {
-                dispatch(push("/issue/edit"));
-                handleClose();
-              }}
-            >
-              アイデアを募集する
-            </MenuItem>
-            <MenuItem
-              onClick={() => {
-                dispatch(push("/myissuelist"));
-                handleClose();
-              }}
-            >
-              タスク一覧を見る
-            </MenuItem>
-            <MenuItem
-              onClick={() => {
-                dispatch(push("/companysetting"));
-                handleClose();
-              }}
-            >
-              会社の設定を書く
-            </MenuItem>
-          </Menu>
-        </Fab>
-      </Box>
     </div>
   );
 };

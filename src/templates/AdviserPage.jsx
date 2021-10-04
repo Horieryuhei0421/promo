@@ -13,18 +13,27 @@ const AdviserPage = () => {
 
   return (
     <div>
-      <h1>{username}</h1>
-      <h2>Adviser</h2>
-      <div>
-        <Switch
-          checked={false}
-          onChange={() => dispatch(push("/companypage"))}
-          name="loading"
-          color="primary"
-        />
-      </div>
-      <div>
-        <IssueList></IssueList>
+      <div className="main-back">
+        <div className="top-heignt">
+          <h1>{username}</h1>
+        </div>
+        <div>
+          <h2>Adviser</h2>
+          <div>
+            <Switch
+              checked={false}
+              onChange={() => dispatch(push("/companypage"))}
+              name="loading"
+              color="primary"
+            />
+          </div>
+        </div>
+        <div>
+          <div className="module-spacer--medium" />
+          <IssueList></IssueList>
+          <div className="module-spacer--medium" />
+          <div className="module-spacer--medium" />
+        </div>
       </div>
     </div>
   );

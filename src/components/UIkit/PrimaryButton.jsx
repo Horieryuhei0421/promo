@@ -6,9 +6,9 @@ import { createStyles } from "@material-ui/core";
 const useStyles = makeStyles((theme) =>
   createStyles({
     button: {
-      backgroundColor: "#e38530",
-      color: "#000",
-      fontSize: 16,
+      backgroundColor: "#3894FF",
+      color: "#f4f4f4",
+      fontSize: 18,
       height: 48,
       marginBottom: 16,
       width: 256,
