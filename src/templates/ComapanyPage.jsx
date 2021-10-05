@@ -41,15 +41,35 @@ const CompanyPage = () => {
   const handleClose = () => {
     setAnchorEL(null);
   };
+  const moveToEdit = () => {
+    if (companyname === "未記入") {
+      alert(
+        "会社の情報を入力してからご利用ください。右下の青いボタンからご入力できます。"
+      );
+      return false;
+    } else {
+      dispatch(push("/issue/edit"));
+    }
+  };
+  const moveToList = () => {
+    if (companyname === "未記入") {
+      alert(
+        "会社の情報を入力してからご利用ください。右下の青いボタンからご入力できます。"
+      );
+      return false;
+    } else {
+      dispatch(push("/myissuelist"));
+    }
+  };
 
   return (
     <div>
       <div className="main-back">
         <div className="top-heignt">
-          <h1>{username}</h1>
-          <h1>{userprofession}</h1>
-          <h1>{userbirthday}</h1>
-          <h1>{usermessage}</h1>
+          <h1>氏名： {username}</h1>
+          <h1>職業： {userprofession}</h1>
+          <h1>生年月日： {userbirthday}</h1>
+          <h1>プロフィール： {usermessage}</h1>
         </div>
         <div>
           <h2>Company</h2>
@@ -66,10 +86,10 @@ const CompanyPage = () => {
           <div className="module-spacer--medium" />
           <div className="main-pop-flame">
             <div>
-              <h1>会社名:{companyname}</h1>
-              <h1>住所:{companyaddress}</h1>
-              <h1>電話番号:{companytel}</h1>
-              <h1>会社の詳細:{companydescription}</h1>
+              <h1>会社名: {companyname}</h1>
+              <h1>住所: {companyaddress}</h1>
+              <h1>電話番号: {companytel}</h1>
+              <h1>会社の詳細: {companydescription}</h1>
             </div>
           </div>
         </div>
@@ -89,7 +109,7 @@ const CompanyPage = () => {
               >
                 <MenuItem
                   onClick={() => {
-                    dispatch(push("/issue/edit"));
+                    moveToEdit();
                     handleClose();
                   }}
                   style={{ fontSize: "1.2em" }}
@@ -98,7 +118,7 @@ const CompanyPage = () => {
                 </MenuItem>
                 <MenuItem
                   onClick={() => {
-                    dispatch(push("/myissuelist"));
+                    moveToList();
                     handleClose();
                   }}
                   style={{ fontSize: "1.2em" }}
@@ -112,7 +132,7 @@ const CompanyPage = () => {
                   }}
                   style={{ fontSize: "1.2em" }}
                 >
-                  会社の設定を書く
+                  会社の情報を書く
                 </MenuItem>
               </Menu>
             </Fab>

@@ -54,9 +54,9 @@ const CompanySetting = () => {
           <div className="module-spacer--medium" />
           <TextInput
             fullWidth={true}
-            label={"会社名"}
+            label={"会社名（必須）"}
             multiline={false}
-            required={true}
+            required={false}
             rows={1}
             value={companyname}
             type={"text"}
@@ -66,7 +66,7 @@ const CompanySetting = () => {
             fullWidth={true}
             label={"住所"}
             multiline={false}
-            required={true}
+            required={false}
             rows={1}
             value={companyaddress}
             type={"text"}
@@ -76,7 +76,7 @@ const CompanySetting = () => {
             fullWidth={true}
             label={"電話番号"}
             multiline={false}
-            required={true}
+            required={false}
             rows={1}
             value={companytel}
             type={"number"}
@@ -86,7 +86,7 @@ const CompanySetting = () => {
             fullWidth={true}
             label={"会社の詳細等"}
             multiline={true}
-            required={true}
+            required={false}
             rows={6}
             value={companydescription}
             type={"text"}
@@ -110,6 +110,7 @@ const CompanySetting = () => {
               }
             />
           </div>
+          <p>※必須項目を記入した後、ボタンを押して下さい。</p>
         </div>
       </div>
       <div>

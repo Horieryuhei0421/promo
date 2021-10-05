@@ -25,10 +25,10 @@ const AdviserPage = () => {
     <div>
       <div className="main-back">
         <div className="top-heignt">
-          <h1>{username}</h1>
-          <h1>{userprofession}</h1>
-          <h1>{userbirthday}</h1>
-          <h1>{usermessage}</h1>
+          <h1>氏名： {username}</h1>
+          <h1>職業： {userprofession}</h1>
+          <h1>生年月日： {userbirthday}</h1>
+          <h1>プロフィール： {usermessage}</h1>
         </div>
         <div>
           <h2>Adviser</h2>
