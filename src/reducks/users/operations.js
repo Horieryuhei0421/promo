@@ -127,9 +127,9 @@ export const signUp = (username, email, password, confirmPassword) => {
             uid: uid,
             updated_at: timestamp,
             username: username,
-            profession: "",
-            birthday: "",
-            message: "",
+            profession: "未記入",
+            birthday: "未記入",
+            message: "未記入",
             companyname: "未記入",
             companyaddress: "未記入",
             companytel: "未記入",
@@ -173,9 +173,18 @@ export const signOut = () => {
 
 export const addCompanySetting = (companyname, companyaddress, companytel, companydescription, uid) => {
   return async (dispatch, getState) => {
-    if (companyname === "" || companyaddress === "" || companytel === "" || companydescription === "") {
-      alert('無記入の箇所があります。ご確認ください。')
+    if (companyname === "") {
+      alert('必須事項が記入されていません。ご確認ください。')
       return false
+    }
+    if (companyaddress === "") {
+      companyaddress = "未記入"
+    }
+    if (companytel === "") {
+      companytel = "未記入"
+    }
+    if (companydescription === "") {
+      companydescription = "未記入"
     }
     // const timestamp = FirebaseTimestamp.now()
 
@@ -201,8 +210,18 @@ export const addCompanySetting = (companyname, companyaddress, companytel, compa
 export const addUserSetting = (username, profession, birthday, message, uid) => {
   return async (dispatch, getState) => {
     if (username === "") {
-      alert('記入必須の箇所が無記入です。ご確認ください。')
+      alert('必須事項が記入されていません。ご確認ください。')
       return false
+    }
+
+    if (profession === "") {
+      profession = "未記入"
+    }
+    if (birthday === "") {
+      birthday = "未記入"
+    }
+    if (message === "") {
+      message = "未記入"
     }
     // const timestamp = FirebaseTimestamp.now()
 

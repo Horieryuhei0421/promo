@@ -55,9 +55,9 @@ const Profile = () => {
           <div className="module-spacer--medium" />
           <TextInput
             fullWidth={true}
-            label={"名前"}
+            label={"名前(必須)"}
             multiline={false}
-            required={true}
+            required={false}
             rows={1}
             value={username}
             type={"text"}
@@ -67,18 +67,18 @@ const Profile = () => {
             fullWidth={true}
             label={"職業"}
             multiline={false}
-            required={true}
+            required={false}
             rows={1}
             value={profession}
             type={"text"}
             onChange={inputProfession}
           />
-          <p align="left">生年月日*</p>
+          <p align="left">生年月日</p>
           <TextInput
             fullWidth={true}
             label={""}
             multiline={false}
-            required={true}
+            required={false}
             rows={1}
             value={birthday}
             type={"date"}
@@ -88,7 +88,7 @@ const Profile = () => {
             fullWidth={true}
             label={"プロフィール"}
             multiline={true}
-            required={true}
+            required={false}
             rows={6}
             value={message}
             type={"text"}
@@ -106,6 +106,7 @@ const Profile = () => {
               }
             />
           </div>
+          <p>※必須項目を記入した後、ボタンを押して下さい。</p>
         </div>
       </div>
       <div>
