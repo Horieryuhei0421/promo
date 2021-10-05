@@ -1,16 +1,118 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import { React, useState, useCallback } from "react";
+import { getUserId } from "../reducks/users/selectors";
+import { useDispatch, useSelector } from "react-redux";
 import { push } from "connected-react-router";
+import { addUserSetting } from "../reducks/users/operations";
+import { PrimaryButton, TextInput } from "../components/UIkit";
+import { FirebaseTimestamp } from "../firebase";
+import { textAlign } from "@mui/system";
 
 const Profile = () => {
   const dispatch = useDispatch();
 
+  const [username, setUserName] = useState(""),
+    [profession, setProfession] = useState(""),
+    [birthday, setBirthday] = useState(""),
+    [message, setMessage] = useState("");
+  // [images, setImages] = useState([]);
+
+  const selector = useSelector((state) => state);
+  const uid = getUserId(selector);
+
+  const inputName = useCallback(
+    (event) => {
+      setUserName(event.target.value);
+    },
+    [setUserName]
+  );
+
+  const inputProfession = useCallback(
+    (event) => {
+      setProfession(event.target.value);
+    },
+    [setProfession]
+  );
+
+  const inputBirthday = useCallback(
+    (event) => {
+      setBirthday(event.target.value);
+    },
+    [setBirthday]
+  );
+
+  const inputMessage = useCallback(
+    (event) => {
+      setMessage(event.target.value);
+    },
+    [setMessage]
+  );
+
   return (
-    <div className="c-section-container">
-      <h2 className="u-text-center u-text__headline">プロフィール設定ページ</h2>
-      <button onClick={() => dispatch(push("/adviserpage"))}>
-        ホームページへ
-      </button>
+    <div>
+      <div>
+        <div className="c-section-container">
+          <h2 className="u-text-center u-text__headline">プロフィールの設定</h2>
+          <div className="module-spacer--medium" />
+          <TextInput
+            fullWidth={true}
+            label={"名前"}
+            multiline={false}
+            required={true}
+            rows={1}
+            value={username}
+            type={"text"}
+            onChange={inputName}
+          />
+          <TextInput
+            fullWidth={true}
+            label={"職業"}
+            multiline={false}
+            required={true}
+            rows={1}
+            value={profession}
+            type={"text"}
+            onChange={inputProfession}
+          />
+          <p align="left">生年月日*</p>
+          <TextInput
+            fullWidth={true}
+            label={""}
+            multiline={false}
+            required={true}
+            rows={1}
+            value={birthday}
+            type={"date"}
+            onChange={inputBirthday}
+          />
+          <TextInput
+            fullWidth={true}
+            label={"プロフィール"}
+            multiline={true}
+            required={true}
+            rows={6}
+            value={message}
+            type={"text"}
+            onChange={inputMessage}
+          />
+
+          <div className="module-spacer--medium" />
+          <div className="center">
+            <PrimaryButton
+              label={"設定する"}
+              onClick={() =>
+                dispatch(
+                  addUserSetting(username, profession, birthday, message, uid)
+                )
+              }
+            />
+          </div>
+        </div>
+      </div>
+      <div>
+        <button onClick={() => dispatch(push("/adviserpage"))}>
+          会社のホームに戻る
+        </button>
+      </div>
     </div>
   );
 };

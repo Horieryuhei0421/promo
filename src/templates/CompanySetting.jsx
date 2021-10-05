@@ -49,11 +49,6 @@ const CompanySetting = () => {
   return (
     <div>
       <div>
-        <button onClick={() => dispatch(push("/companypage"))}>
-          会社のホームに戻る
-        </button>
-      </div>
-      <div>
         <div className="c-section-container">
           <h2 className="u-text-center u-text__headline">会社の詳細設定</h2>
           <div className="module-spacer--medium" />
@@ -116,6 +111,11 @@ const CompanySetting = () => {
             />
           </div>
         </div>
+      </div>
+      <div>
+        <button onClick={() => dispatch(push("/companypage"))}>
+          会社のホームに戻る
+        </button>
       </div>
     </div>
   );

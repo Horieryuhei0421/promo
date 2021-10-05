@@ -29,6 +29,19 @@ export const companyAction = (userState) => {
   }
 };
 
+export const USER_ACTION = "USER_ACTION"
+export const userAction = (userState) => {
+  return {
+    type: "USER_ACTION",
+    payload: {
+      username: userState.username,
+      profession: userState.profession,
+      birthday: userState.birthday,
+      message: userState.message,
+    }
+  }
+};
+
 // export const COMPANY_SETTING = "COMPANY_SETTING"
 // export const companySettingAction = (settingState) => {
 //   return {
