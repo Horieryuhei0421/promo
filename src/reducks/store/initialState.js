@@ -7,13 +7,13 @@ const initialState = {
     role: "",
     uid: "",
     username: "",
+    profession: "",
+    birthday: "",
+    message: "",
     companyname: "",
     companyaddress: "",
     companytel: "",
     companydescription: "",
-    profession: "",
-    birthday: "",
-    message: "",
   }
 }
 

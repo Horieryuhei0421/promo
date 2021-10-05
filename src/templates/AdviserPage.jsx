@@ -1,21 +1,34 @@
-import { React } from "react";
-import { getUserName } from "../reducks/users/selectors";
+import { React, useEffect, useState } from "react";
+import {
+  getUserName,
+  getUserProfession,
+  getUserBirthday,
+  getUserMessage,
+} from "../reducks/users/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { push } from "connected-react-router";
-import { signOut } from "../reducks/users/operations";
 import Switch from "@mui/material/Switch";
 import IssueList from "../components/issues/IssueList";
 
 const AdviserPage = () => {
   const selector = useSelector((state) => state);
   const username = getUserName(selector);
+  const userprofession = getUserProfession(selector);
+  const userbirthday = getUserBirthday(selector);
+  const usermessage = getUserMessage(selector);
   const dispatch = useDispatch();
+
+  const query = window.location.search;
+  useEffect(() => {}, [query]);
 
   return (
     <div>
       <div className="main-back">
         <div className="top-heignt">
           <h1>{username}</h1>
+          <h1>{userprofession}</h1>
+          <h1>{userbirthday}</h1>
+          <h1>{usermessage}</h1>
         </div>
         <div>
           <h2>Adviser</h2>
