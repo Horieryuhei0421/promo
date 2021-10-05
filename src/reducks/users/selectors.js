@@ -17,6 +17,21 @@ export const getUserName = createSelector(
   state => state.username
 )
 
+export const getUserProfession = createSelector(
+  [usersSelector],
+  state => state.profession
+)
+
+export const getUserBirthday = createSelector(
+  [usersSelector],
+  state => state.birthday
+)
+
+export const getUserMessage = createSelector(
+  [usersSelector],
+  state => state.message
+)
+
 export const getCompanyName = createSelector(
   [usersSelector],
   state => state.companyname

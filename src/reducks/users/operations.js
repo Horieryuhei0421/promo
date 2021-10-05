@@ -1,8 +1,8 @@
 import { signInAction, signOutAction, companyAction, userAction } from "./actions";
 import { push } from "connected-react-router";
 import { auth, db, FirebaseTimestamp } from "../../firebase/index"
-import { useDispatch, useSelector } from "react-redux";
-import { getUserId } from "./selectors";
+// import { useDispatch, useSelector } from "react-redux";
+// import { getUserId } from "./selectors";
 
 const usersRef = db.collection('users')
 
@@ -25,6 +25,9 @@ export const listenAuthState = () => {
               role: data.role,
               uid: user.uid,
               username: data.username,
+              profession: data.profession,
+              birthday: data.birthday,
+              message: data.message,
               companyname: data.companyname,
               companyaddress: data.companyaddress,
               companytel: data.companytel,
@@ -58,6 +61,9 @@ export const signIn = (email, password) => {
                 role: data.role,
                 uid: uid,
                 username: data.username,
+                profession: data.profession,
+                birthday: data.birthday,
+                message: data.message,
                 companyname: data.companyname,
                 companyaddress: data.companyaddress,
                 companytel: data.companytel,
@@ -121,6 +127,9 @@ export const signUp = (username, email, password, confirmPassword) => {
             uid: uid,
             updated_at: timestamp,
             username: username,
+            profession: "",
+            birthday: "",
+            message: "",
             companyname: "未記入",
             companyaddress: "未記入",
             companytel: "未記入",
@@ -168,7 +177,7 @@ export const addCompanySetting = (companyname, companyaddress, companytel, compa
       alert('無記入の箇所があります。ご確認ください。')
       return false
     }
-    const timestamp = FirebaseTimestamp.now()
+    // const timestamp = FirebaseTimestamp.now()
 
     const data = {
       companyname: companyname,
@@ -195,20 +204,20 @@ export const addUserSetting = (username, profession, birthday, message, uid) => 
       alert('記入必須の箇所が無記入です。ご確認ください。')
       return false
     }
-    const timestamp = FirebaseTimestamp.now()
+    // const timestamp = FirebaseTimestamp.now()
 
-    const data = {
+    const userdata = {
       username: username,
       profession: profession,
       birthday: birthday,
       message: message,
+      uid: uid
     }
 
-    return db.collection('users').doc(uid).set(data, { merge: true })
+    return db.collection('users').doc(uid).set(userdata, { merge: true })
       .then(snapshot => {
-        dispatch(userAction(data))
+        dispatch(userAction(userdata))
         dispatch(push("/adviserpage"))
-        window.location.reload();
       }).catch((error) => {
         throw new Error(error)
       })

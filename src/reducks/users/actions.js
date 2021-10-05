@@ -7,6 +7,9 @@ export const signInAction = (userState) => {
       role: userState.role,
       uid: userState.uid,
       username: userState.username,
+      profession: userState.profession,
+      birthday: userState.birthday,
+      message: userState.message,
       companyname: userState.companyname,
       companyaddress: userState.companyaddress,
       companytel: userState.companytel,
@@ -67,7 +70,14 @@ export const signOutAction = () => {
       isSignedIn: false,
       role: "",
       uid: "",
-      username: ""
+      username: "",
+      profession: "",
+      birthday: "",
+      message: "",
+      companyname: "",
+      companyaddress: "",
+      companytel: "",
+      companydescription: "",
     }
   }
 }

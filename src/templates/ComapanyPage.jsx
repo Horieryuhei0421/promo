@@ -1,6 +1,9 @@
 import { React, useEffect, useState } from "react";
 import {
   getUserName,
+  getUserProfession,
+  getUserBirthday,
+  getUserMessage,
   getCompanyName,
   getCompanyAddress,
   getCompanyTel,
@@ -8,7 +11,6 @@ import {
 } from "../reducks/users/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { push } from "connected-react-router";
-import { signOut } from "../reducks/users/operations";
 import Switch from "@mui/material/Switch";
 import Box from "@mui/material/Box";
 import Fab from "@mui/material/Fab";
@@ -19,6 +21,9 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 const CompanyPage = () => {
   const selector = useSelector((state) => state);
   const username = getUserName(selector);
+  const userprofession = getUserProfession(selector);
+  const userbirthday = getUserBirthday(selector);
+  const usermessage = getUserMessage(selector);
   const companyname = getCompanyName(selector);
   const companyaddress = getCompanyAddress(selector);
   const companytel = getCompanyTel(selector);
@@ -42,6 +47,9 @@ const CompanyPage = () => {
       <div className="main-back">
         <div className="top-heignt">
           <h1>{username}</h1>
+          <h1>{userprofession}</h1>
+          <h1>{userbirthday}</h1>
+          <h1>{usermessage}</h1>
         </div>
         <div>
           <h2>Company</h2>
