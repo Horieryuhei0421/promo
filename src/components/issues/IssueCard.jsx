@@ -66,46 +66,48 @@ const ProductCard = (props) => {
   const price = props.price.toLocaleString();
   return (
     <Card className={classes.root}>
-      <div className="p-grid__column2">
-        <CardMedia
-          className={classes.media}
-          image={images[0].path}
-          title=""
-          onClick={() => dispatch(push("/issues/" + props.id))}
-        />
-        <CardContent className={classes.content}>
-          <div onClick={() => dispatch(push("/issues/" + props.id))}>
-            <Typography color="textSecondary">{props.name}</Typography>
-            <Typography className={classes.price}>¥{price}</Typography>
-          </div>
-          <IconButton onClick={handleClick} className={classes.menu}>
-            <MoreVertIcon />
-          </IconButton>
-          <Menu
-            id="menu-appbar"
-            anchorEl={anchorEl}
-            keepMounted
-            open={Boolean(anchorEl)}
-            onClose={handleClose}
-          >
-            <MenuItem
-            // onClick={() => {
-            //   dispatch(push("/issue/edit/" + props.id));
-            //   handleClose();
-            // }}
+      <div className="card-shadow">
+        <div className="p-grid__column2">
+          <CardMedia
+            className={classes.media}
+            image={images[0].path}
+            title=""
+            onClick={() => dispatch(push("/issues/" + props.id))}
+          />
+          <CardContent className={classes.content}>
+            <div onClick={() => dispatch(push("/issues/" + props.id))}>
+              <Typography color="textSecondary">{props.name}</Typography>
+              <Typography className={classes.price}>¥{price}</Typography>
+            </div>
+            <IconButton onClick={handleClick} className={classes.menu}>
+              <MoreVertIcon />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorEl}
+              keepMounted
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
             >
-              編集する
-            </MenuItem>
-            <MenuItem
-            // onClick={() => {
-            //   dispatch(deleteProduct(props.id));
-            //   handleClose();
-            // }}
-            >
-              削除する
-            </MenuItem>
-          </Menu>
-        </CardContent>
+              <MenuItem
+              // onClick={() => {
+              //   dispatch(push("/issue/edit/" + props.id));
+              //   handleClose();
+              // }}
+              >
+                編集する
+              </MenuItem>
+              <MenuItem
+              // onClick={() => {
+              //   dispatch(deleteProduct(props.id));
+              //   handleClose();
+              // }}
+              >
+                削除する
+              </MenuItem>
+            </Menu>
+          </CardContent>
+        </div>
       </div>
     </Card>
   );

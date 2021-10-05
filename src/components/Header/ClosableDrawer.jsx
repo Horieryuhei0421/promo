@@ -88,7 +88,7 @@ const ClosableDrawer = (props) => {
     },
     {
       func: selectMenu,
-      label: "プロフィール",
+      label: "プロフィール設定",
       icon: <Person />,
       id: "profile",
       value: "/profile",

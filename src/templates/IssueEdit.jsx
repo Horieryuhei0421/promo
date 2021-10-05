@@ -68,8 +68,8 @@ const IssueEdit = () => {
 
   return (
     <section>
-      <h2 className="u-text__headline u-text-center">案件を記入する</h2>
       <div className="c-section-container">
+        <h2 className="u-text__headline u-text-center">案件を記入する</h2>
         <ImageArea images={images} setImages={setImages} />
         <TextInput
           fullWidth={true}

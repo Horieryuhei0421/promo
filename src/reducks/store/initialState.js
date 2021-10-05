@@ -11,6 +11,9 @@ const initialState = {
     companyaddress: "",
     companytel: "",
     companydescription: "",
+    profession: "",
+    birthday: "",
+    message: "",
   }
 }
 

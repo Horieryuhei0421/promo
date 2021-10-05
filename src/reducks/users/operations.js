@@ -1,4 +1,4 @@
-import { signInAction, signOutAction, companyAction } from "./actions";
+import { signInAction, signOutAction, companyAction, userAction } from "./actions";
 import { push } from "connected-react-router";
 import { auth, db, FirebaseTimestamp } from "../../firebase/index"
 import { useDispatch, useSelector } from "react-redux";
@@ -182,6 +182,32 @@ export const addCompanySetting = (companyname, companyaddress, companytel, compa
       .then(snapshot => {
         dispatch(companyAction(data))
         dispatch(push("/companypage"))
+        window.location.reload();
+      }).catch((error) => {
+        throw new Error(error)
+      })
+  }
+}
+
+export const addUserSetting = (username, profession, birthday, message, uid) => {
+  return async (dispatch, getState) => {
+    if (username === "") {
+      alert('記入必須の箇所が無記入です。ご確認ください。')
+      return false
+    }
+    const timestamp = FirebaseTimestamp.now()
+
+    const data = {
+      username: username,
+      profession: profession,
+      birthday: birthday,
+      message: message,
+    }
+
+    return db.collection('users').doc(uid).set(data, { merge: true })
+      .then(snapshot => {
+        dispatch(userAction(data))
+        dispatch(push("/adviserpage"))
         window.location.reload();
       }).catch((error) => {
         throw new Error(error)
