@@ -24,11 +24,17 @@ const AdviserPage = () => {
   return (
     <div>
       <div className="main-back">
-        <div className="top-heignt">
-          <h1>氏名： {username}</h1>
-          <h1>職業： {userprofession}</h1>
-          <h1>生年月日： {userbirthday}</h1>
-          <h1>プロフィール： {usermessage}</h1>
+        <div className="main-top-flame">
+          <div className="top-grid">
+            <p className="top-title">氏名：</p>
+            <p>{username}</p>
+            <p className="top-title">職業：</p>
+            <p>{userprofession}</p>
+            <p className="top-title">生年月日：</p>
+            <p>{userbirthday}</p>
+            <p className="top-title">プロフィール：</p>
+            <p>{usermessage}</p>
+          </div>
         </div>
         <div>
           <h2>Adviser</h2>
