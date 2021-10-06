@@ -65,11 +65,17 @@ const CompanyPage = () => {
   return (
     <div>
       <div className="main-back">
-        <div className="top-heignt">
-          <h1>氏名： {username}</h1>
-          <h1>職業： {userprofession}</h1>
-          <h1>生年月日： {userbirthday}</h1>
-          <h1>プロフィール： {usermessage}</h1>
+        <div className="main-top-flame">
+          <div className="top-grid">
+            <p className="top-title">氏名：</p>
+            <p>{username}</p>
+            <p className="top-title">職業：</p>
+            <p>{userprofession}</p>
+            <p className="top-title">生年月日：</p>
+            <p>{userbirthday}</p>
+            <p className="top-title">プロフィール：</p>
+            <p>{usermessage}</p>
+          </div>
         </div>
         <div>
           <h2>Company</h2>
@@ -85,11 +91,17 @@ const CompanyPage = () => {
         <div>
           <div className="module-spacer--medium" />
           <div className="main-pop-flame">
-            <div>
-              <h1>会社名: {companyname}</h1>
-              <h1>住所: {companyaddress}</h1>
-              <h1>電話番号: {companytel}</h1>
-              <h1>会社の詳細: {companydescription}</h1>
+            <div className="main-setting-flame">
+              <div className="top-grid">
+                <p className="top-title">会社名:</p>
+                <p>{companyname}</p>
+                <p className="top-title">住所:</p>
+                <p>{companyaddress}</p>
+                <p className="top-title">電話番号:</p>
+                <p>{companytel}</p>
+                <p className="top-title">会社の詳細:</p>
+                <p>{companydescription}</p>
+              </div>
             </div>
           </div>
         </div>

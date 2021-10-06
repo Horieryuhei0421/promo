@@ -194,6 +194,51 @@ h1 {
   }
 }
 
+.main-top-flame {
+  margin: 0em 2em;
+  padding: 5em 1em;
+}
+@media screen and (min-width: 600px) {
+  .main-top-flame {
+    margin: 0em 2em;
+    padding: 5em 8em;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .main-top-flame {
+    margin: 0em 2em;
+    padding: 5em 16em;
+  }
+}
+
+.main-setting-flame {
+  margin: 0em 2em;
+  padding: 5em 0em;
+}
+@media screen and (min-width: 600px) {
+  .main-setting-flame {
+    margin: 0em 2em;
+    padding: 5em 4em;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .main-setting-flame {
+    margin: 0em 2em;
+    padding: 5em 8em;
+  }
+}
+
+.top-title {
+  text-align: center;
+}
+
+@media screen and (min-width: 1400px) {
+  .top-title {
+    position: relative;
+    left: 5rem;
+  }
+}
+
 .top-heignt {
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -217,4 +262,23 @@ h1 {
 .card-shadow {
   background-color: #ffffff;
   box-shadow: inset -5px -5px 10px #cacaca, inset 10px 10px 10px #ffffff;
+}
+
+/*********** Promo gird ***********/
+
+.top-grid {
+  text-align: left;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media screen and (max-width: 750px) {
+  .top-grid {
+    display: block;
+    text-align: center;
+  }
+}
+
+.top-grid > p {
+  margin-top: 0;
 }

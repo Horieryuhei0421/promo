@@ -56,7 +56,7 @@ const Header = () => {
           <img
             src={promo_tag}
             alt="TorahackLogo"
-            width="130px"
+            width="115px"
             onClick={() => dispatch(push("/adviserpage"))}
           />
           {isSignedIn && (
