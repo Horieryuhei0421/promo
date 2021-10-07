@@ -175,6 +175,7 @@ h1 {
   /* box-shadow: inset -6px -6px 10px #a1a1a1, inset -6px -6px 10px #ffffff; */
   margin: 0em 1em;
   font-style: inherit;
+  color: #4b4b4b;
 }
 
 .main-pop-flame {
@@ -228,6 +229,13 @@ h1 {
   }
 }
 
+.top-png {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 9px solid #00b2df; /* 枠線を付加 */
+}
+
 .top-title {
   text-align: center;
 }
@@ -237,6 +245,12 @@ h1 {
     position: relative;
     left: 5rem;
   }
+}
+
+.top-switch {
+  font-size: 35px;
+  font-weight: bolder;
+  color: #6e6e6e;
 }
 
 .top-heignt {
@@ -279,6 +293,24 @@ h1 {
   }
 }
 
+.top-profile-grid {
+  text-align: left;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 .top-grid > p {
   margin-top: 0;
+  font-weight: bold;
+}
+
+.top-profile-grid > p {
+  margin-top: 0;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 750px) {
+  .grid-space {
+    height: 30px;
+  }
 }
