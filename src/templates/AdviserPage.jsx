@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { push } from "connected-react-router";
 import Switch from "@mui/material/Switch";
 import IssueList from "../components/issues/IssueList";
+import NoImage from "../assets/img/No_image.png";
 
 const AdviserPage = () => {
   const selector = useSelector((state) => state);
@@ -25,7 +26,9 @@ const AdviserPage = () => {
     <div>
       <div className="main-back">
         <div className="main-top-flame">
-          <div className="top-grid">
+          <img src={NoImage} alt="noimage" className="top-png" />
+          <div className="module-spacer--medium" />
+          <div className="top-profile-grid">
             <p className="top-title">氏名：</p>
             <p>{username}</p>
             <p className="top-title">職業：</p>
@@ -37,7 +40,7 @@ const AdviserPage = () => {
           </div>
         </div>
         <div>
-          <h2>Adviser</h2>
+          <h2 className="top-switch">Adviser</h2>
           <div>
             <Switch
               checked={false}
