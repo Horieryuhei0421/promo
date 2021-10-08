@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { push } from "connected-react-router";
 import Switch from "@mui/material/Switch";
 import IssueList from "../components/issues/IssueList";
-import NoImage from "../assets/img/No_image.png";
+import IconImage from "../assets/img/Icon_image.png";
 
 const AdviserPage = () => {
   const selector = useSelector((state) => state);
@@ -26,7 +26,7 @@ const AdviserPage = () => {
     <div>
       <div className="main-back">
         <div className="main-top-flame">
-          <img src={NoImage} alt="noimage" className="top-png" />
+          <img src={IconImage} alt="noimage" className="top-png" />
           <div className="module-spacer--medium" />
           <div className="top-profile-grid">
             <p className="top-title">氏名：</p>

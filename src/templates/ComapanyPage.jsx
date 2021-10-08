@@ -17,7 +17,7 @@ import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 import { IconButton, Menu, MenuItem } from "@material-ui/core";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import NoImage from "../assets/img/No_image.png";
+import IconImage from "../assets/img/Icon_image.png";
 
 const CompanyPage = () => {
   const selector = useSelector((state) => state);
@@ -67,7 +67,7 @@ const CompanyPage = () => {
     <div>
       <div className="main-back">
         <div className="main-top-flame">
-          <img src={NoImage} alt="noimage" className="top-png" />
+          <img src={IconImage} alt="noimage" className="top-png" />
           <div className="module-spacer--medium" />
           <div className="top-profile-grid">
             <p className="top-title">氏名：</p>

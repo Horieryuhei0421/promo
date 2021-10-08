@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     height: 0,
     paddingTop: "100%",
   },
-  price: {
+  farmname: {
     color: theme.palette.primary.main,
     fontSize: 16,
   },
@@ -63,7 +63,6 @@ const ProductCard = (props) => {
   };
 
   const images = props.images.length > 0 ? props.images : [{ path: NoImage }];
-  const price = props.price.toLocaleString();
   return (
     <Card className={classes.root}>
       {/* <div className="card-shadow"> */}
@@ -76,8 +75,8 @@ const ProductCard = (props) => {
         />
         <CardContent className={classes.content}>
           <div onClick={() => dispatch(push("/issues/" + props.id))}>
-            <Typography color="textSecondary">{props.name}</Typography>
-            <Typography className={classes.price}>¥{price}</Typography>
+            <Typography className={classes.farmname}>{props.name}</Typography>
+            <Typography color="textSecondary">{props.subHead}</Typography>
           </div>
           <IconButton onClick={handleClick} className={classes.menu}>
             <MoreVertIcon />

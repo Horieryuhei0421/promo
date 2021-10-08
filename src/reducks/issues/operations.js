@@ -18,7 +18,7 @@ export const fetchIssues = () => {
   }
 }
 
-export const saveIssue = (name, subHead, description, price, images, uid) => {
+export const saveIssue = (name, subHead, description,  images, uid) => {
   return async (dispatch) => {
     const timestamp = FirebaseTimestamp.now()
 
@@ -26,7 +26,6 @@ export const saveIssue = (name, subHead, description, price, images, uid) => {
       name: name,
       subHead: subHead,
       description: description,
-      price: parseInt(price, 10),
       images: images,
       updated_at: timestamp,
 

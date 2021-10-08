@@ -88,8 +88,7 @@ const IssueDetail = () => {
             </div>
             <div className={classes.detail}>
               <h2 className="u-text__headline">{issue.name}</h2>
-              <p className={classes.price}>¥{issue.price.toLocaleString()}</p>
-
+              <p>{issue.subHead}</p>
               <div className="module-spacer--small" />
               <p>{issue.description}</p>
             </div>

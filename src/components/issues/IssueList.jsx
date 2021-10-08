@@ -30,8 +30,8 @@ const IssueList = () => {
                 key={issue.id}
                 id={issue.id}
                 name={issue.name}
+                subHead={issue.subHead}
                 images={issue.images}
-                price={issue.price}
               />
               // <h1>{issue.name}</h1>
             ))}
