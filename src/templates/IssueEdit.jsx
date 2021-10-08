@@ -17,8 +17,7 @@ const IssueEdit = () => {
   const [name, setName] = useState(""),
     [subHead, setSubHead] = useState(""),
     [description, setDescription] = useState(""),
-    [images, setImages] = useState([]),
-    [price, setPrice] = useState("");
+    [images, setImages] = useState([]);
 
   const selector = useSelector((state) => state);
   const uid = getUserId(selector);
@@ -42,13 +41,6 @@ const IssueEdit = () => {
       setSubHead(event.target.value);
     },
     [setSubHead]
-  );
-
-  const inputPrice = useCallback(
-    (event) => {
-      setPrice(event.target.value);
-    },
-    [setPrice]
   );
 
   // useEffect(() => {
@@ -101,24 +93,12 @@ const IssueEdit = () => {
           value={description}
           type={"text"}
         />
-        <TextInput
-          fullWidth={true}
-          label={"価格"}
-          multiline={false}
-          required={true}
-          onChange={inputPrice}
-          rows={1}
-          value={price}
-          type={"number"}
-        />
         <div className="module-spacer--small" />
         <div className="center">
           <PrimaryButton
             label={"提案を募集する"}
             onClick={() =>
-              dispatch(
-                saveIssue(name, subHead, description, price, images, uid)
-              )
+              dispatch(saveIssue(name, subHead, description, images, uid))
             }
           />
         </div>
