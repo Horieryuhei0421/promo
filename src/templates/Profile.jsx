@@ -3,7 +3,7 @@ import { getUserId } from "../reducks/users/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { push } from "connected-react-router";
 import { addUserSetting } from "../reducks/users/operations";
-import { PrimaryButton, TextInput } from "../components/UIkit";
+import { AnImageArea, PrimaryButton, TextInput } from "../components/UIkit";
 import { FirebaseTimestamp } from "../firebase";
 import { textAlign } from "@mui/system";
 
@@ -13,8 +13,8 @@ const Profile = () => {
   const [username, setUserName] = useState(""),
     [profession, setProfession] = useState(""),
     [birthday, setBirthday] = useState(""),
-    [message, setMessage] = useState("");
-  // [images, setImages] = useState([]);
+    [message, setMessage] = useState(""),
+    [images, setImages] = useState([]);
 
   const selector = useSelector((state) => state);
   const uid = getUserId(selector);
@@ -53,6 +53,7 @@ const Profile = () => {
         <div className="c-section-container">
           <h2 className="u-text-center u-text__headline">プロフィールの設定</h2>
           <div className="module-spacer--medium" />
+          <AnImageArea images={images} setImages={setImages} />
           <TextInput
             fullWidth={true}
             label={"名前(必須)"}
@@ -101,7 +102,14 @@ const Profile = () => {
               label={"設定する"}
               onClick={() =>
                 dispatch(
-                  addUserSetting(username, profession, birthday, message, uid)
+                  addUserSetting(
+                    username,
+                    profession,
+                    birthday,
+                    message,
+                    images,
+                    uid
+                  )
                 )
               }
             />

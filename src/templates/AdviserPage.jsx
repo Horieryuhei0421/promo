@@ -4,6 +4,7 @@ import {
   getUserProfession,
   getUserBirthday,
   getUserMessage,
+  getUserImage,
 } from "../reducks/users/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { push } from "connected-react-router";
@@ -17,7 +18,9 @@ const AdviserPage = () => {
   const userprofession = getUserProfession(selector);
   const userbirthday = getUserBirthday(selector);
   const usermessage = getUserMessage(selector);
+  const userimage = getUserImage(selector);
   const dispatch = useDispatch();
+  const images = userimage.length > 0 ? userimage : [{ path: IconImage }];
 
   const query = window.location.search;
   useEffect(() => {}, [query]);
@@ -26,7 +29,7 @@ const AdviserPage = () => {
     <div>
       <div className="main-back">
         <div className="main-top-flame">
-          <img src={IconImage} alt="noimage" className="top-png" />
+          <img src={images[0].path} alt="iconImge" className="top-png" />
           <div className="module-spacer--medium" />
           <div className="top-profile-grid">
             <p className="top-title">氏名：</p>

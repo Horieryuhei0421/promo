@@ -32,6 +32,11 @@ export const getUserMessage = createSelector(
   state => state.message
 )
 
+export const getUserImage = createSelector(
+  [usersSelector],
+  state => state.image
+)
+
 export const getCompanyName = createSelector(
   [usersSelector],
   state => state.companyname

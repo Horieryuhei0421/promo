@@ -4,6 +4,7 @@ import {
   getUserProfession,
   getUserBirthday,
   getUserMessage,
+  getUserImage,
   getCompanyName,
   getCompanyAddress,
   getCompanyTel,
@@ -25,11 +26,13 @@ const CompanyPage = () => {
   const userprofession = getUserProfession(selector);
   const userbirthday = getUserBirthday(selector);
   const usermessage = getUserMessage(selector);
+  const userimage = getUserImage(selector);
   const companyname = getCompanyName(selector);
   const companyaddress = getCompanyAddress(selector);
   const companytel = getCompanyTel(selector);
   const companydescription = getCompanyDescription(selector);
   const dispatch = useDispatch();
+  const images = userimage.length > 0 ? userimage : [{ path: IconImage }];
 
   const query = window.location.search;
   useEffect(() => {}, [query]);
@@ -67,7 +70,7 @@ const CompanyPage = () => {
     <div>
       <div className="main-back">
         <div className="main-top-flame">
-          <img src={IconImage} alt="noimage" className="top-png" />
+          <img src={images[0].path} alt="iconImge" className="top-png" />
           <div className="module-spacer--medium" />
           <div className="top-profile-grid">
             <p className="top-title">氏名：</p>

@@ -7,6 +7,7 @@ const initialState = {
     role: "",
     uid: "",
     username: "",
+    image: [],
     profession: "",
     birthday: "",
     message: "",
