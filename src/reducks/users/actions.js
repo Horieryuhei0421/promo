@@ -7,6 +7,7 @@ export const signInAction = (userState) => {
       role: userState.role,
       uid: userState.uid,
       username: userState.username,
+      image: userState.image,
       profession: userState.profession,
       birthday: userState.birthday,
       message: userState.message,
@@ -38,6 +39,7 @@ export const userAction = (userState) => {
     type: "USER_ACTION",
     payload: {
       username: userState.username,
+      image: userState.image,
       profession: userState.profession,
       birthday: userState.birthday,
       message: userState.message,
