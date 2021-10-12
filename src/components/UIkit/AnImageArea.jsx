@@ -68,7 +68,7 @@ const AnImageArea = (props) => {
           ))}
       </div>
       <div className="u-text-right">
-        <span>会社のイメージ（画像）を登録する</span>
+        <span>プロフィールのイメージ（画像）を登録する</span>
         <IconButton className={classes.icon}>
           <label>
             <AddPhotoAlternateIcon />

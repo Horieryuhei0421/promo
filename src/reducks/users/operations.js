@@ -26,6 +26,7 @@ export const listenAuthState = () => {
               uid: user.uid,
               username: data.username,
               image: data.image,
+              companyimage: data.companyimage,
               profession: data.profession,
               birthday: data.birthday,
               message: data.message,
@@ -63,6 +64,7 @@ export const signIn = (email, password) => {
                 uid: uid,
                 username: data.username,
                 image: data.image,
+                companyimage: data.companyimage,
                 profession: data.profession,
                 birthday: data.birthday,
                 message: data.message,
@@ -130,6 +132,7 @@ export const signUp = (username, email, password, confirmPassword) => {
             updated_at: timestamp,
             username: username,
             image: [],
+            companyimage: [],
             profession: "未記入",
             birthday: "未記入",
             message: "未記入",
@@ -174,7 +177,7 @@ export const signOut = () => {
 //   }
 // }
 
-export const addCompanySetting = (companyname, companyaddress, companytel, companydescription, uid) => {
+export const addCompanySetting = (companyname, companyaddress, companytel, companydescription, companyimage, uid) => {
   return async (dispatch, getState) => {
     if (companyname === "") {
       alert('必須事項が記入されていません。ご確認ください。')
@@ -196,6 +199,7 @@ export const addCompanySetting = (companyname, companyaddress, companytel, compa
       companyaddress: companyaddress,
       companytel: companytel,
       companydescription: companydescription,
+      companyimage: companyimage,
       uid: uid
     }
 
@@ -226,7 +230,7 @@ export const addUserSetting = (username, profession, birthday, message, image, u
     if (message === "") {
       message = "未記入"
     }
-  
+
     // const timestamp = FirebaseTimestamp.now()
 
     const userdata = {

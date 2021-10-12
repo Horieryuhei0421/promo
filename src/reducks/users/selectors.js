@@ -54,3 +54,7 @@ export const getCompanyDescription = createSelector(
   [usersSelector],
   state => state.companydescription
 )
+export const getCompanyImage = createSelector(
+  [usersSelector],
+  state => state.companyimage
+)
