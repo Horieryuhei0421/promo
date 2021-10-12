@@ -15,6 +15,7 @@ export const signInAction = (userState) => {
       companyaddress: userState.companyaddress,
       companytel: userState.companytel,
       companydescription: userState.companydescription,
+      companyimage: userState.companyimage,
     }
   }
 };
@@ -28,6 +29,7 @@ export const companyAction = (userState) => {
       companyaddress: userState.address,
       companytel: userState.tel,
       companydescription: userState.description,
+      companyimage: userState.companyimage,
       uid: userState.uid
     }
   }

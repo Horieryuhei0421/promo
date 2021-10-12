@@ -117,11 +117,6 @@ const Profile = () => {
           <p>※必須項目を記入した後、ボタンを押して下さい。</p>
         </div>
       </div>
-      <div>
-        <button onClick={() => dispatch(push("/adviserpage"))}>
-          会社のホームに戻る
-        </button>
-      </div>
     </div>
   );
 };

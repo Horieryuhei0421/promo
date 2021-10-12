@@ -9,6 +9,7 @@ import {
   getCompanyAddress,
   getCompanyTel,
   getCompanyDescription,
+  getCompanyImage,
 } from "../reducks/users/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { push } from "connected-react-router";
@@ -19,6 +20,7 @@ import AddIcon from "@mui/icons-material/Add";
 import { IconButton, Menu, MenuItem } from "@material-ui/core";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import IconImage from "../assets/img/Icon_image.png";
+import NoImage from "../assets/img/No_image.png";
 
 const CompanyPage = () => {
   const selector = useSelector((state) => state);
@@ -31,8 +33,11 @@ const CompanyPage = () => {
   const companyaddress = getCompanyAddress(selector);
   const companytel = getCompanyTel(selector);
   const companydescription = getCompanyDescription(selector);
+  const companyimage = getCompanyImage(selector);
   const dispatch = useDispatch();
   const images = userimage.length > 0 ? userimage : [{ path: IconImage }];
+  const companyimages =
+    companyimage.length > 0 ? companyimage : [{ path: NoImage }];
 
   const query = window.location.search;
   useEffect(() => {}, [query]);
@@ -97,6 +102,12 @@ const CompanyPage = () => {
         <div>
           <div className="module-spacer--medium" />
           <div className="main-pop-flame">
+            <img
+              src={companyimages[0].path}
+              alt="companyImge"
+              width="250px"
+              className="main-setting-image"
+            />
             <div className="main-setting-flame">
               <div className="top-grid">
                 <p className="top-title">会社名:</p>

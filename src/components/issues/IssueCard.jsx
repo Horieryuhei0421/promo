@@ -45,6 +45,7 @@ const useStyles = makeStyles((theme) => ({
   },
   menu: {
     position: "relative",
+    margin: "0 0 auto auto",
   },
 }));
 

@@ -3,7 +3,7 @@ import { getUserId } from "../reducks/users/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { push } from "connected-react-router";
 import { addCompanySetting } from "../reducks/users/operations";
-import { PrimaryButton, TextInput } from "../components/UIkit";
+import { AnImageArea, PrimaryButton, TextInput } from "../components/UIkit";
 import { FirebaseTimestamp } from "../firebase";
 
 const CompanySetting = () => {
@@ -12,8 +12,8 @@ const CompanySetting = () => {
   const [companyname, setCompanyname] = useState(""),
     [companyaddress, setCompanyaddress] = useState(""),
     [companytel, setCompanytel] = useState(""),
-    [companydescription, setCompanydescription] = useState("");
-  // [images, setImages] = useState("");
+    [companydescription, setCompanydescription] = useState(""),
+    [companyimages, setCompanyImages] = useState([]);
 
   const selector = useSelector((state) => state);
   const uid = getUserId(selector);
@@ -52,6 +52,7 @@ const CompanySetting = () => {
         <div className="c-section-container">
           <h2 className="u-text-center u-text__headline">会社の詳細設定</h2>
           <div className="module-spacer--medium" />
+          <AnImageArea images={companyimages} setImages={setCompanyImages} />
           <TextInput
             fullWidth={true}
             label={"会社名（必須）"}
@@ -104,6 +105,7 @@ const CompanySetting = () => {
                     companyaddress,
                     companytel,
                     companydescription,
+                    companyimages,
                     uid
                   )
                 )
@@ -112,11 +114,6 @@ const CompanySetting = () => {
           </div>
           <p>※必須項目を記入した後、ボタンを押して下さい。</p>
         </div>
-      </div>
-      <div>
-        <button onClick={() => dispatch(push("/companypage"))}>
-          会社のホームに戻る
-        </button>
       </div>
     </div>
   );
