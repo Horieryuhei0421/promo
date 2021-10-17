@@ -6,12 +6,16 @@ const Reset = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="c-section-container">
-      <h2 className="u-text-center u-text__headline">トッッップ！！！！</h2>
-      <div className="module-spacer--medium" />
-      <div className="center">
-        <p onClick={() => dispatch(push("/signin"))}>サインインに</p>
-        <p onClick={() => dispatch(push("/signup"))}>サインアップに</p>
+    <div className="main-back">
+      <div className="main-pop-flame3">
+        <h2 className="u-text-center u-text__headline">トッッップ！！！！</h2>
+        <div className="main-pop-flame2">
+          <div className="module-spacer--medium" />
+          <div className="center">
+            <p onClick={() => dispatch(push("/signin"))}>サインインに</p>
+            <p onClick={() => dispatch(push("/signup"))}>サインアップに</p>
+          </div>
+        </div>
       </div>
     </div>
   );

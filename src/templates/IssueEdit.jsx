@@ -60,52 +60,53 @@ const IssueEdit = () => {
 
   return (
     <section>
-      <div className="c-section-container">
-        <h2 className="u-text__headline u-text-center">案件を記入する</h2>
-        <ImageArea images={images} setImages={setImages} />
-        <TextInput
-          fullWidth={true}
-          label={"会社名"}
-          multiline={false}
-          required={true}
-          onChange={inputName}
-          rows={1}
-          value={name}
-          type={"text"}
-        />
-        <TextInput
-          fullWidth={true}
-          label={"案件見出し"}
-          multiline={false}
-          required={true}
-          onChange={inputSubHead}
-          rows={1}
-          value={subHead}
-          type={"text"}
-        />
-        <TextInput
-          fullWidth={true}
-          label={"案件詳細"}
-          multiline={true}
-          required={true}
-          onChange={inputDescription}
-          rows={5}
-          value={description}
-          type={"text"}
-        />
-        <div className="module-spacer--small" />
-        <div className="center">
-          <PrimaryButton
-            label={"提案を募集する"}
-            onClick={() =>
-              dispatch(saveIssue(name, subHead, description, images, uid))
-            }
-          />
+      <div className="main-back">
+        <div className="main-pop-flame3">
+          <h2 className="u-text__headline u-text-center">案件を記入する</h2>
+          <div className="main-pop-flame2">
+            <ImageArea images={images} setImages={setImages} />
+            <TextInput
+              fullWidth={true}
+              label={"会社名"}
+              multiline={false}
+              required={true}
+              onChange={inputName}
+              rows={1}
+              value={name}
+              type={"text"}
+            />
+            <TextInput
+              fullWidth={true}
+              label={"案件見出し"}
+              multiline={false}
+              required={true}
+              onChange={inputSubHead}
+              rows={1}
+              value={subHead}
+              type={"text"}
+            />
+            <TextInput
+              fullWidth={true}
+              label={"案件詳細"}
+              multiline={true}
+              required={true}
+              onChange={inputDescription}
+              rows={5}
+              value={description}
+              type={"text"}
+            />
+            <div className="module-spacer--small" />
+            <div className="center">
+              <PrimaryButton
+                label={"提案を募集する"}
+                onClick={() =>
+                  dispatch(saveIssue(name, subHead, description, images, uid))
+                }
+              />
+            </div>
+          </div>
         </div>
       </div>
-      <button onClick={() => dispatch(push("/companypage"))}>
-        会社ページに戻りたーい！！
-      </button>
     </section>
   );
 };
