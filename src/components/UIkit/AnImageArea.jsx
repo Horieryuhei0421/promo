@@ -68,7 +68,7 @@ const AnImageArea = (props) => {
           ))}
       </div>
       <div className="u-text-right">
-        <span>プロフィールのイメージ（画像）を登録する</span>
+        <p>イメージ（画像）を登録する</p>
         <IconButton className={classes.icon}>
           <label>
             <AddPhotoAlternateIcon />
@@ -80,7 +80,7 @@ const AnImageArea = (props) => {
             />
           </label>
         </IconButton>
-        <p align="center">※一番左の写真が設定に反映されます。</p>
+        <p align="center">※一番左の画像が設定に反映されます。</p>
       </div>
     </div>
   );

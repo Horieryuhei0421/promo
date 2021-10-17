@@ -124,7 +124,8 @@
 
 .u-text__headline {
   color: #3894ff;
-  font-size: 1.563rem;
+  font-size: 1.8rem;
+  font-weight: 600;
   margin: 0 auto 1rem auto;
 }
 
@@ -162,6 +163,9 @@ h1 {
   font-size: larger;
 }
 
+p {
+  color: #636363;
+}
 /*********** Promo  ***********/
 
 .body-background {
@@ -188,6 +192,23 @@ h1 {
   min-height: 60vh;
 }
 
+.main-pop-flame2 {
+  margin: 0 auto;
+  max-width: 575px;
+  padding: 4rem 1rem;
+  background-color: #e0e0e0;
+  height: auto;
+  width: calc(100% - 2rem);
+  border-radius: 7px;
+  box-shadow: inset 10px 10px 22px #c9c9c9, inset -10px -10px 10px #ffffff;
+}
+
+.main-pop-flame3 {
+  background-color: #f4f4f4;
+  padding: 4em 0em;
+  min-height: 90vh;
+}
+
 @media screen and (max-width: 1000px) {
   .main-pop-flame {
     margin: 0em 2em;
@@ -196,7 +217,7 @@ h1 {
 }
 
 .main-top-flame {
-  margin: 0em 2em;
+  margin: 0em 2m;
   padding: 5em 1em;
 }
 @media screen and (min-width: 600px) {

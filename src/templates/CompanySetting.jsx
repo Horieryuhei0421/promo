@@ -48,71 +48,72 @@ const CompanySetting = () => {
 
   return (
     <div>
-      <div>
-        <div className="c-section-container">
+      <div className="main-back">
+        <div className="main-pop-flame3">
           <h2 className="u-text-center u-text__headline">会社の詳細設定</h2>
-          <div className="module-spacer--medium" />
-          <AnImageArea images={companyimages} setImages={setCompanyImages} />
-          <TextInput
-            fullWidth={true}
-            label={"会社名（必須）"}
-            multiline={false}
-            required={false}
-            rows={1}
-            value={companyname}
-            type={"text"}
-            onChange={inputCompanyname}
-          />
-          <TextInput
-            fullWidth={true}
-            label={"住所"}
-            multiline={false}
-            required={false}
-            rows={1}
-            value={companyaddress}
-            type={"text"}
-            onChange={inputAddress}
-          />
-          <TextInput
-            fullWidth={true}
-            label={"電話番号"}
-            multiline={false}
-            required={false}
-            rows={1}
-            value={companytel}
-            type={"number"}
-            onChange={inputTel}
-          />
-          <TextInput
-            fullWidth={true}
-            label={"会社の詳細等"}
-            multiline={true}
-            required={false}
-            rows={6}
-            value={companydescription}
-            type={"text"}
-            onChange={inputDescription}
-          />
-
-          <div className="module-spacer--medium" />
-          <div className="center">
-            <PrimaryButton
-              label={"設定する"}
-              onClick={() =>
-                dispatch(
-                  addCompanySetting(
-                    companyname,
-                    companyaddress,
-                    companytel,
-                    companydescription,
-                    companyimages,
-                    uid
-                  )
-                )
-              }
+          <div className="main-pop-flame2">
+            <AnImageArea images={companyimages} setImages={setCompanyImages} />
+            <TextInput
+              fullWidth={true}
+              label={"会社名（必須）"}
+              multiline={false}
+              required={false}
+              rows={1}
+              value={companyname}
+              type={"text"}
+              onChange={inputCompanyname}
             />
+            <TextInput
+              fullWidth={true}
+              label={"住所"}
+              multiline={false}
+              required={false}
+              rows={1}
+              value={companyaddress}
+              type={"text"}
+              onChange={inputAddress}
+            />
+            <TextInput
+              fullWidth={true}
+              label={"電話番号"}
+              multiline={false}
+              required={false}
+              rows={1}
+              value={companytel}
+              type={"number"}
+              onChange={inputTel}
+            />
+            <TextInput
+              fullWidth={true}
+              label={"会社の詳細等"}
+              multiline={true}
+              required={false}
+              rows={6}
+              value={companydescription}
+              type={"text"}
+              onChange={inputDescription}
+            />
+
+            <div className="module-spacer--medium" />
+            <div className="center">
+              <PrimaryButton
+                label={"設定する"}
+                onClick={() =>
+                  dispatch(
+                    addCompanySetting(
+                      companyname,
+                      companyaddress,
+                      companytel,
+                      companydescription,
+                      companyimages,
+                      uid
+                    )
+                  )
+                }
+              />
+            </div>
+            <p>※必須項目を記入した後、ボタンを押して下さい。</p>
           </div>
-          <p>※必須項目を記入した後、ボタンを押して下さい。</p>
         </div>
       </div>
     </div>
