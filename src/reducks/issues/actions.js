@@ -5,3 +5,11 @@ export const fetchIssuesAction = (issues) => {
     payload: issues
   }
 }
+
+export const DELETE_ISSUES = "DELETE_ISSUES";
+export const deleteIssuesAction = (issues) => {
+  return {
+    type: "DELETE_ISSUES",
+    payload: issues
+  }
+}

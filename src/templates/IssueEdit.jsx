@@ -1,18 +1,18 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserId } from "../reducks/users/selectors";
 import ImageArea from "../components/issues/ImageArea";
 import { TextInput, PrimaryButton } from "../components/UIkit";
 import { saveIssue } from "../reducks/issues/operations";
-// import { db } from "../firebase";
 import { push } from "connected-react-router";
+import { db } from "../firebase";
 
 const IssueEdit = () => {
   const dispatch = useDispatch();
-  // let id = window.location.pathname.split("/product/edit")[1];
-  // if (id !== "") {
-  //   id = id.split("/")[1];
-  // }
+  let id = window.location.pathname.split("/issue/edit")[1];
+  if (id !== "") {
+    id = id.split("/")[1];
+  }
 
   const [name, setName] = useState(""),
     [subHead, setSubHead] = useState(""),
@@ -43,20 +43,20 @@ const IssueEdit = () => {
     [setSubHead]
   );
 
-  // useEffect(() => {
-  //   if (id !== "") {
-  //     db.collection("products")
-  //       .doc(id)
-  //       .get()
-  //       .then((snapshot) => {
-  //         const data = snapshot.data();
-  //         setImages(data.images);
-  //         setName(data.name);
-  //         setDescription(data.description);
-  //         setPrice(data.price);
-  //       });
-  //   }
-  // }, [id]);
+  useEffect(() => {
+    if (id !== "") {
+      db.collection("issues")
+        .doc(id)
+        .get()
+        .then((snapshot) => {
+          const data = snapshot.data();
+          setName(data.name);
+          setSubHead(data.subHead);
+          setDescription(data.description);
+          setImages(data.images);
+        });
+    }
+  }, [id]);
 
   return (
     <section>
@@ -100,7 +100,9 @@ const IssueEdit = () => {
               <PrimaryButton
                 label={"提案を募集する"}
                 onClick={() =>
-                  dispatch(saveIssue(name, subHead, description, images, uid))
+                  dispatch(
+                    saveIssue(id, name, subHead, description, images, uid)
+                  )
                 }
               />
             </div>

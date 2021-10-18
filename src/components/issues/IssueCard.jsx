@@ -9,7 +9,7 @@ import { push } from "connected-react-router";
 import { useDispatch } from "react-redux";
 import { IconButton, Menu, MenuItem } from "@material-ui/core";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-// import { deleteProduct } from "../../reducks/products/operations";
+import { deleteIssue } from "../../reducks/issues/operations";
 import { theme } from "../../assets/theme";
 
 const useStyles = makeStyles((theme) => ({
@@ -91,18 +91,18 @@ const ProductCard = (props) => {
             onClose={handleClose}
           >
             <MenuItem
-            // onClick={() => {
-            //   dispatch(push("/issue/edit/" + props.id));
-            //   handleClose();
-            // }}
+              onClick={() => {
+                dispatch(push("/issue/edit/" + props.id));
+                handleClose();
+              }}
             >
               編集する
             </MenuItem>
             <MenuItem
-            // onClick={() => {
-            //   dispatch(deleteProduct(props.id));
-            //   handleClose();
-            // }}
+              onClick={() => {
+                dispatch(deleteIssue(props.id));
+                handleClose();
+              }}
             >
               削除する
             </MenuItem>
