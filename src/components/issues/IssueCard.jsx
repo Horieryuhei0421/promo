@@ -6,7 +6,8 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import NoImage from "../../assets/img/No_image.png";
 import { push } from "connected-react-router";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserId } from "../../reducks/users/selectors";
 import { IconButton, Menu, MenuItem } from "@material-ui/core";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { deleteIssue } from "../../reducks/issues/operations";
@@ -52,6 +53,8 @@ const useStyles = makeStyles((theme) => ({
 const ProductCard = (props) => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const selector = useSelector((state) => state);
+  const uid = getUserId(selector);
 
   const [anchorEl, setAnchorEL] = useState(null);
 
@@ -64,6 +67,20 @@ const ProductCard = (props) => {
   };
 
   const images = props.images.length > 0 ? props.images : [{ path: NoImage }];
+
+  const editissue = () => {
+    if (props.uid === uid) {
+      dispatch(push("/issue/edit/" + props.id));
+      handleClose();
+    }
+  };
+
+  const deleteissue = () => {
+    if (props.uid === uid) {
+      dispatch(deleteIssue(props.id));
+      handleClose();
+    }
+  };
 
   return (
     <Card className={classes.root}>
@@ -92,16 +109,14 @@ const ProductCard = (props) => {
           >
             <MenuItem
               onClick={() => {
-                dispatch(push("/issue/edit/" + props.id));
-                handleClose();
+                editissue();
               }}
             >
               編集する
             </MenuItem>
             <MenuItem
               onClick={() => {
-                dispatch(deleteIssue(props.id));
-                handleClose();
+                deleteissue();
               }}
             >
               削除する

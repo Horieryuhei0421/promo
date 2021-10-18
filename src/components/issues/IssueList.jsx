@@ -11,13 +11,9 @@ const IssueList = () => {
   const issues = getIssues(selector);
 
   const query = window.location.search;
-  const gender = /^\?gender=/.test(query) ? query.split("?gender=")[1] : "";
-  const category = /^\?category=/.test(query)
-    ? query.split("?category=")[1]
-    : "";
 
   useEffect(() => {
-    dispatch(fetchIssues(gender, category));
+    dispatch(fetchIssues());
   }, [query]);
 
   return (
@@ -29,6 +25,7 @@ const IssueList = () => {
               <IssueCard
                 key={issue.id}
                 id={issue.id}
+                uid={issue.uid}
                 name={issue.name}
                 subHead={issue.subHead}
                 images={issue.images}
