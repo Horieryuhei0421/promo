@@ -44,14 +44,30 @@ const IssueDetail = () => {
   const id = path.split("/issues/")[1];
 
   const [issue, setIssue] = useState(null),
-    [submit, setSubmit] = useState(false),
-    [idea, setIdea] = useState("");
+    [submit, setSubmit] = useState(true),
+    [idea, setIdea] = useState(""),
+    [price, setPrice] = useState("");
+
+  // const handlesubmit = () => {
+  //   setSubmit(!submit);
+  // };
+
+  const backToHome = useCallback(() => {
+    setSubmit(!submit);
+  }, [submit]);
 
   const inputIdea = useCallback(
     (event) => {
       setIdea(event.target.value);
     },
     [setIdea]
+  );
+
+  const inputPrice = useCallback(
+    (event) => {
+      setPrice(event.target.value);
+    },
+    [setPrice]
   );
 
   useEffect(() => {
@@ -85,11 +101,11 @@ const IssueDetail = () => {
             <hr />
             {submit === true ? (
               <>
-                <PrimaryButton label={"提案する"} />
+                <PrimaryButton label={"提案する"} onClick={backToHome} />
               </>
             ) : (
               <div className="sub-pop-flame">
-                <GreyButton label={"閉じる"} />
+                <GreyButton label={"閉じる"} onClick={backToHome} />
                 <TextInput
                   fullWidth={true}
                   label={"提案内容"}
@@ -100,6 +116,19 @@ const IssueDetail = () => {
                   type={"text"}
                   onChange={inputIdea}
                 />
+                <TextInput
+                  fullWidth={true}
+                  label={"価格"}
+                  multiline={false}
+                  required={true}
+                  onChange={inputPrice}
+                  rows={1}
+                  value={price}
+                  type={"number"}
+                />
+                <div className="module-spacer--small" />
+                <PrimaryButton label={"送信する"} onClick={backToHome} />
+                <div className="module-spacer--small" />
               </div>
             )}
           </section>

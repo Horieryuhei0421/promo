@@ -221,7 +221,7 @@ hr {
   padding: 1em 4em;
   font-weight: bold;
   border-radius: 7px;
-  background-color: #d8d8d8;
+  background-color: #dbdbdb;
   margin: 0em 8em;
   min-height: 30vh;
 }
@@ -253,24 +253,24 @@ hr {
 @media screen and (max-width: 1000px) {
   .sub-pop-flame {
     margin: 0em 2em;
-    padding: 5em 1em;
+    padding: 3em 1em;
   }
 }
 
 .sub-top-flame {
   margin: 0em 2m;
-  padding: 5em 1em;
+  padding: 3em 1em;
 }
 @media screen and (min-width: 600px) {
   .sub-top-flame {
     margin: 0em 2em;
-    padding: 5em 8em;
+    padding: 3em 8em;
   }
 }
 @media screen and (min-width: 1000px) {
   .sub-top-flame {
     margin: 0em 2em;
-    padding: 5em 16em;
+    padding: 3em 16em;
   }
 }
 
