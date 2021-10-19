@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { db, FirebaseTimestamp } from "../firebase";
 import { push } from "connected-react-router";
 import ImageSwiper from "../components/issues/ImageSwiper";
-// import { addProductToCart } from "../reducks/users/operations";
+import { PrimaryButton, GreyButton, TextInput } from "../components/UIkit";
 
 const useStyles = makeStyles((theme) => ({
   sliderBox: {
@@ -23,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "left",
     [theme.breakpoints.down("sm")]: {
       margin: "0 auto 16px auto",
-      height: 320,
       width: 320,
     },
     [theme.breakpoints.up("sm")]: {
@@ -44,7 +43,32 @@ const IssueDetail = () => {
   const path = selector.router.location.pathname;
   const id = path.split("/issues/")[1];
 
-  const [issue, setIssue] = useState(null);
+  const [issue, setIssue] = useState(null),
+    [submit, setSubmit] = useState(true),
+    [idea, setIdea] = useState(""),
+    [price, setPrice] = useState("");
+
+  // const handlesubmit = () => {
+  //   setSubmit(!submit);
+  // };
+
+  const backToHome = useCallback(() => {
+    setSubmit(!submit);
+  }, [submit]);
+
+  const inputIdea = useCallback(
+    (event) => {
+      setIdea(event.target.value);
+    },
+    [setIdea]
+  );
+
+  const inputPrice = useCallback(
+    (event) => {
+      setPrice(event.target.value);
+    },
+    [setPrice]
+  );
 
   useEffect(() => {
     db.collection("issues")
@@ -56,45 +80,60 @@ const IssueDetail = () => {
       });
   }, []);
 
-  // const addProduct = useCallback(
-  //   (selectedSize) => {
-  //     const timestamp = FirebaseTimestamp.now();
-  //     // dispatch(
-  //     //   addIssueToCart({
-  //     //     added_at: timestamp,
-  //     //     description: issue.description,
-  //     //     gender: issue.gender,
-  //     //     images: issue.images,
-  //     //     name: issue.name,
-  //     //     price: issue.price,
-  //     //     productId: issue.id,
-  //     //     quantity: 1,
-  //     //     size: selectedSize,
-  //     //   })
-  //     // );
-  //   },
-  //   [issue]
-  // );
   return (
     <>
-      <button onClick={() => dispatch(push("/adviserpage"))}>
-        ホームページへ
-      </button>
-      <section className="c-section-wrapin">
-        {issue && (
-          <div className="p-grid__row">
-            <div className={classes.sliderBox}>
-              <ImageSwiper images={issue.images} />
-            </div>
-            <div className={classes.detail}>
-              <h2 className="u-text__headline">{issue.name}</h2>
-              <p>{issue.subHead}</p>
-              <div className="module-spacer--small" />
-              <p>{issue.description}</p>
-            </div>
-          </div>
-        )}
-      </section>
+      <div className="main-back">
+        <div className="main-pop-flame3">
+          <section className="c-section-wrapin">
+            {issue && (
+              <div className="p-grid__row">
+                <div className={classes.sliderBox}>
+                  <ImageSwiper images={issue.images} />
+                </div>
+                <div className={classes.detail}>
+                  <h2 className="u-text__headline">{issue.name}</h2>
+                  <p>{issue.subHead}</p>
+                  <div className="module-spacer--small" />
+                  <p>{issue.description}</p>
+                </div>
+              </div>
+            )}
+            <hr />
+            {submit === true ? (
+              <>
+                <PrimaryButton label={"提案する"} onClick={backToHome} />
+              </>
+            ) : (
+              <div className="sub-pop-flame">
+                <GreyButton label={"閉じる"} onClick={backToHome} />
+                <TextInput
+                  fullWidth={true}
+                  label={"提案内容"}
+                  multiline={true}
+                  required={true}
+                  rows={6}
+                  value={idea}
+                  type={"text"}
+                  onChange={inputIdea}
+                />
+                <TextInput
+                  fullWidth={true}
+                  label={"価格"}
+                  multiline={false}
+                  required={true}
+                  onChange={inputPrice}
+                  rows={1}
+                  value={price}
+                  type={"number"}
+                />
+                <div className="module-spacer--small" />
+                <PrimaryButton label={"送信する"} onClick={backToHome} />
+                <div className="module-spacer--small" />
+              </div>
+            )}
+          </section>
+        </div>
+      </div>
     </>
   );
 };

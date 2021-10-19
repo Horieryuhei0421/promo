@@ -166,6 +166,14 @@ h1 {
 p {
   color: #636363;
 }
+
+hr {
+  border-width: 3px 0px 0px 0px; /* 太さ */
+  border-style: solid;
+  border-color: rgb(201, 201, 201); /* 線色 */
+  height: 1px; /* 高さ(※古いIE用) */
+  width: 80%;
+}
 /*********** Promo  ***********/
 
 .body-background {
@@ -209,6 +217,15 @@ p {
   min-height: 90vh;
 }
 
+.sub-pop-flame {
+  padding: 1em 4em;
+  font-weight: bold;
+  border-radius: 7px;
+  background-color: #dbdbdb;
+  margin: 0em 8em;
+  min-height: 30vh;
+}
+
 @media screen and (max-width: 1000px) {
   .main-pop-flame {
     margin: 0em 2em;
@@ -230,6 +247,30 @@ p {
   .main-top-flame {
     margin: 0em 2em;
     padding: 5em 16em;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .sub-pop-flame {
+    margin: 0em 2em;
+    padding: 3em 1em;
+  }
+}
+
+.sub-top-flame {
+  margin: 0em 2m;
+  padding: 3em 1em;
+}
+@media screen and (min-width: 600px) {
+  .sub-top-flame {
+    margin: 0em 2em;
+    padding: 3em 8em;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .sub-top-flame {
+    margin: 0em 2em;
+    padding: 3em 16em;
   }
 }
 
