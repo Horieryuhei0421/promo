@@ -143,7 +143,7 @@ const IssueDetail = () => {
               </>
             )}
             <section>
-              <IdeaList />
+              <IdeaList issueId={id} />
             </section>
           </section>
         </div>

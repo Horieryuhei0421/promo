@@ -11,9 +11,9 @@ const IssueEdit = () => {
   const dispatch = useDispatch();
   const selector = useSelector((state) => state);
   const uid = getUserId(selector);
+
   let id = window.location.pathname.split("/issue/edit")[1];
   if (id !== "") {
-    console.log(id);
     id = id.split("/")[1];
   }
 

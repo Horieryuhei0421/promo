@@ -31,3 +31,18 @@ export const saveIdea = (iid, idea, price, uid) => {
       })
   }
 }
+
+export const fetchIdeas = () => {
+  return async (dispatch) => {
+    ideasRef.orderBy("updated_at", "desc").get()
+      .then(snapshots => {
+        const ideaList = []
+        snapshots.forEach(snapshot => {
+          const idea = snapshot.data()
+          ideaList.push(idea)
+        })
+        dispatch(fetchIdeasAction(ideaList))
+      })
+  }
+}
+
