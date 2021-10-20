@@ -30,7 +30,6 @@ const IssueList = () => {
                 subHead={issue.subHead}
                 images={issue.images}
               />
-              // <h1>{issue.name}</h1>
             ))}
         </div>
       </section>

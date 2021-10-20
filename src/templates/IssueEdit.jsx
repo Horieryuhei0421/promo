@@ -9,8 +9,11 @@ import { db } from "../firebase";
 
 const IssueEdit = () => {
   const dispatch = useDispatch();
+  const selector = useSelector((state) => state);
+  const uid = getUserId(selector);
   let id = window.location.pathname.split("/issue/edit")[1];
   if (id !== "") {
+    console.log(id);
     id = id.split("/")[1];
   }
 
@@ -18,9 +21,6 @@ const IssueEdit = () => {
     [subHead, setSubHead] = useState(""),
     [description, setDescription] = useState(""),
     [images, setImages] = useState([]);
-
-  const selector = useSelector((state) => state);
-  const uid = getUserId(selector);
 
   const inputName = useCallback(
     (event) => {
