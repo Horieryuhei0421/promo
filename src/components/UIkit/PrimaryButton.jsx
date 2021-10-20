@@ -6,12 +6,12 @@ import { createStyles } from "@material-ui/core";
 const useStyles = makeStyles((theme) =>
   createStyles({
     button: {
-      backgroundColor: "#3894FF",
-      color: "#f4f4f4",
+      backgroundColor: "#ebebeb",
+      color: "#00c8fa",
       fontSize: 18,
       height: 48,
-      marginBottom: 16,
-      width: 256,
+      width: 240,
+      border: "3px solid #00c8fa",
     },
   })
 );

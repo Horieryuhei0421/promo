@@ -3,7 +3,10 @@ import React, { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { db, FirebaseTimestamp } from "../firebase";
 import { push } from "connected-react-router";
+import IdeaList from "../components/issues/IdeaList";
 import ImageSwiper from "../components/issues/ImageSwiper";
+import { getUserId } from "../reducks/users/selectors";
+import { saveIdea } from "../reducks/ideas/operations";
 import { PrimaryButton, GreyButton, TextInput } from "../components/UIkit";
 
 const useStyles = makeStyles((theme) => ({
@@ -40,6 +43,8 @@ const IssueDetail = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const selector = useSelector((state) => state);
+  const uid = getUserId(selector);
+
   const path = selector.router.location.pathname;
   const id = path.split("/issues/")[1];
 
@@ -48,11 +53,7 @@ const IssueDetail = () => {
     [idea, setIdea] = useState(""),
     [price, setPrice] = useState("");
 
-  // const handlesubmit = () => {
-  //   setSubmit(!submit);
-  // };
-
-  const backToHome = useCallback(() => {
+  const handlesubmit = useCallback(() => {
     setSubmit(!submit);
   }, [submit]);
 
@@ -101,36 +102,49 @@ const IssueDetail = () => {
             <hr />
             {submit === true ? (
               <>
-                <PrimaryButton label={"提案する"} onClick={backToHome} />
+                <div className="module-spacer--medium" />
+                <PrimaryButton label={"提案する"} onClick={handlesubmit} />
+                <div className="module-spacer--medium" />
+                <div className="module-spacer--medium" />
               </>
             ) : (
-              <div className="sub-pop-flame">
-                <GreyButton label={"閉じる"} onClick={backToHome} />
-                <TextInput
-                  fullWidth={true}
-                  label={"提案内容"}
-                  multiline={true}
-                  required={true}
-                  rows={6}
-                  value={idea}
-                  type={"text"}
-                  onChange={inputIdea}
-                />
-                <TextInput
-                  fullWidth={true}
-                  label={"価格"}
-                  multiline={false}
-                  required={true}
-                  onChange={inputPrice}
-                  rows={1}
-                  value={price}
-                  type={"number"}
-                />
+              <>
                 <div className="module-spacer--small" />
-                <PrimaryButton label={"送信する"} onClick={backToHome} />
-                <div className="module-spacer--small" />
-              </div>
+                <div className="sub-pop-flame">
+                  <GreyButton label={"閉じる"} onClick={handlesubmit} />
+                  <TextInput
+                    fullWidth={true}
+                    label={"提案内容"}
+                    multiline={true}
+                    required={true}
+                    rows={6}
+                    value={idea}
+                    type={"text"}
+                    onChange={inputIdea}
+                  />
+                  <TextInput
+                    fullWidth={true}
+                    label={"価格"}
+                    multiline={false}
+                    required={true}
+                    onChange={inputPrice}
+                    rows={1}
+                    value={price}
+                    type={"number"}
+                  />
+                  <div className="module-spacer--small" />
+                  <PrimaryButton
+                    label={"送信する"}
+                    onClick={() => dispatch(saveIdea(idea, price, uid))}
+                  />
+                </div>
+                <div className="module-spacer--medium" />
+                <div className="module-spacer--medium" />
+              </>
             )}
+            <section>
+              <IdeaList />
+            </section>
           </section>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import { db, FirebaseTimestamp } from "../../firebase";
 import { push } from "connected-react-router";
-import { deleteIssuesAction, fetchIssuesAction } from "./actions";
+import { deleteIssuesAction, fetchIssuesAction, } from "./actions";
 
 const issuesRef = db.collection("issues")
 
@@ -30,6 +30,8 @@ export const fetchIssues = () => {
   }
 }
 
+
+
 export const saveIssue = (id, name, subHead, description, images, uid) => {
   return async (dispatch) => {
     const timestamp = FirebaseTimestamp.now()
@@ -45,9 +47,9 @@ export const saveIssue = (id, name, subHead, description, images, uid) => {
 
     if (id === "") {
       const ref = issuesRef.doc();
+      data.created_at = timestamp
       id = ref.id;
       data.id = id;
-      data.created_at = timestamp
     }
 
     return issuesRef.doc(id).set(data, { merge: true })
@@ -59,3 +61,4 @@ export const saveIssue = (id, name, subHead, description, images, uid) => {
       })
   }
 }
+

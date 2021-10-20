@@ -197,7 +197,17 @@ hr {
   background-color: #e0e0e0;
   box-shadow: inset 10px 10px 22px #c9c9c9, inset -10px -10px 10px #ffffff;
   margin: 0em 8em;
-  min-height: 60vh;
+  min-height: 30vh;
+}
+
+.main-pop-flame-issue {
+  padding: 5em 4em;
+  font-weight: bold;
+  border-radius: 7px;
+  background-color: #e0e0e0;
+  box-shadow: inset 10px 10px 22px #c9c9c9, inset -10px -10px 10px #ffffff;
+  margin: 0em 3em;
+  min-height: 30vh;
 }
 
 .main-pop-flame2 {
@@ -221,9 +231,10 @@ hr {
   padding: 1em 4em;
   font-weight: bold;
   border-radius: 7px;
-  background-color: #dbdbdb;
+  background-color: #f0f0f0;
   margin: 0em 8em;
   min-height: 30vh;
+  border: 4px solid #00c8fa;
 }
 
 @media screen and (max-width: 1000px) {
@@ -267,10 +278,11 @@ hr {
     padding: 3em 8em;
   }
 }
-@media screen and (min-width: 1000px) {
-  .sub-top-flame {
-    margin: 0em 2em;
-    padding: 3em 16em;
+
+@media screen and (max-width: 1000px) {
+  .main-pop-flame-issue {
+    margin: 0em 0.5em;
+    padding: 5em 1em;
   }
 }
 

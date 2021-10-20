@@ -4,12 +4,11 @@ import { makeStyles } from "@material-ui/styles";
 
 const useStyles = makeStyles((theme) => ({
   button: {
-    backgroundColor: theme.palette.grey["400"],
+    backgroundColor: theme.palette.grey["300"],
     color: "#636363",
     fontSize: 18,
     height: 48,
-    marginBottom: 16,
-    width: 256,
+    width: 240,
   },
 }));
 
