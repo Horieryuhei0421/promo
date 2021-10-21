@@ -282,7 +282,7 @@ hr {
 @media screen and (max-width: 1000px) {
   .main-pop-flame-issue {
     margin: 0em 0.5em;
-    padding: 5em 1em;
+    padding: 3em 2em;
   }
 }
 
@@ -355,6 +355,20 @@ hr {
 .card-shadow {
   background-color: #ffffff;
   box-shadow: inset -5px -5px 10px #cacaca, inset 10px 10px 10px #ffffff;
+}
+
+.idea-back {
+  padding: 1rem 1rem;
+  border-radius: 3px;
+  background-color: #f4f4f4;
+  box-shadow: inset -6px -6px 10px #cfcfcf, inset 6px 6px 10px #ffffff;
+  margin: 1em 0em;
+  font-style: inherit;
+  color: #4b4b4b;
+}
+
+.idea-back-unit {
+  padding: 0.3rem 1rem;
 }
 
 /*********** Promo gird ***********/

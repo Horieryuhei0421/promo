@@ -15,6 +15,7 @@ const IssueEdit = () => {
   let id = window.location.pathname.split("/issue/edit")[1];
   if (id !== "") {
     id = id.split("/")[1];
+    console.log(id);
   }
 
   const [name, setName] = useState(""),

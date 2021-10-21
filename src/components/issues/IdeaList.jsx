@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import IdeaCard from "./IdeaCard";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { fetchIdeas } from "../../reducks/ideas/operations";
@@ -20,7 +21,15 @@ const IdeaList = (props) => {
   return (
     <>
       <div className="main-pop-flame-issue">
-        {newidea.length > 0 && newidea.map((idea) => <p>{idea.idea}</p>)}
+        {newidea.length > 0 &&
+          newidea.map((idea) => (
+            <IdeaCard
+              key={idea.id}
+              id={idea.id}
+              idea={idea.idea}
+              price={idea.price}
+            />
+          ))}
       </div>
     </>
   );
