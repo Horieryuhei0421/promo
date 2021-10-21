@@ -135,7 +135,7 @@ const IssueDetail = () => {
                   <div className="module-spacer--small" />
                   <PrimaryButton
                     label={"送信する"}
-                    onClick={() => dispatch(saveIdea(idea, price, uid))}
+                    onClick={() => dispatch(saveIdea(id, idea, price, uid))}
                   />
                 </div>
                 <div className="module-spacer--medium" />
@@ -143,7 +143,7 @@ const IssueDetail = () => {
               </>
             )}
             <section>
-              <IdeaList />
+              <IdeaList issueId={id} />
             </section>
           </section>
         </div>

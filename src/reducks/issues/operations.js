@@ -61,4 +61,3 @@ export const saveIssue = (id, name, subHead, description, images, uid) => {
       })
   }
 }
-

@@ -1,4 +1,7 @@
 const initialState = {
+  ideas: {
+    list: []
+  },
   issues: {
     list: []
   },
