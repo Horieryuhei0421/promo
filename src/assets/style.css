@@ -242,6 +242,10 @@ hr {
     margin: 0em 2em;
     padding: 5em 1em;
   }
+  .sub-pop-flame {
+    margin: 0em 2em;
+    padding: 3em 1em;
+  }
 }
 
 .main-top-flame {
@@ -258,13 +262,6 @@ hr {
   .main-top-flame {
     margin: 0em 2em;
     padding: 5em 16em;
-  }
-}
-
-@media screen and (max-width: 1000px) {
-  .sub-pop-flame {
-    margin: 0em 2em;
-    padding: 3em 1em;
   }
 }
 
@@ -339,8 +336,6 @@ hr {
 
 .button-position {
   position: fixed;
-  /* right: 20px;
-  bottom: 20px; */
   right: 12rem;
   bottom: 6rem;
 }
@@ -401,6 +396,13 @@ hr {
   padding-top: 30px;
 }
 
+.idea-title {
+  font-weight: 600;
+  font-size: 25px;
+  color: #888888;
+  padding-bottom: 1rem;
+}
+
 /*********** Promo gird ***********/
 
 .top-grid {
@@ -413,6 +415,9 @@ hr {
   .top-grid {
     display: block;
     text-align: center;
+  }
+  .grid-space {
+    height: 30px;
   }
 }
 
@@ -430,10 +435,4 @@ hr {
 .top-profile-grid > p {
   margin-top: 0;
   font-weight: bold;
-}
-
-@media screen and (max-width: 750px) {
-  .grid-space {
-    height: 30px;
-  }
 }

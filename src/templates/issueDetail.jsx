@@ -71,6 +71,8 @@ const IssueDetail = () => {
     [setPrice]
   );
 
+  const quantity = 1;
+
   useEffect(() => {
     db.collection("issues")
       .doc(id)
@@ -135,7 +137,9 @@ const IssueDetail = () => {
                   <div className="module-spacer--small" />
                   <PrimaryButton
                     label={"送信する"}
-                    onClick={() => dispatch(saveIdea(id, idea, price, uid))}
+                    onClick={() =>
+                      dispatch(saveIdea(id, idea, price, quantity, uid))
+                    }
                   />
                 </div>
                 <div className="module-spacer--medium" />

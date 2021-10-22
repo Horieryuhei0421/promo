@@ -21,15 +21,8 @@ const IdeaList = (props) => {
   return (
     <>
       <div className="main-pop-flame-issue">
-        {/* {newidea.length > 0 &&
-          newidea.map((idea) => (
-            <IdeaCard
-              key={idea.id}
-              id={idea.id}
-              idea={idea.idea}
-              price={idea.price}
-            />
-          ))} */}
+        <h1 className="idea-title">アイデア一覧</h1>
+
         {newidea.length > 0 ? (
           newidea.map((idea) => (
             <IdeaCard
@@ -37,11 +30,12 @@ const IdeaList = (props) => {
               id={idea.id}
               idea={idea.idea}
               price={idea.price}
+              quantity={idea.quantity}
             />
           ))
         ) : (
           <>
-            <p className="noIdeaMess">届いている提案がありません</p>
+            <p className="noIdeaMess">届いているアイデアがありません</p>
           </>
         )}
       </div>
