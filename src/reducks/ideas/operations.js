@@ -4,7 +4,7 @@ import { fetchIdeasAction } from "./actions";
 
 const ideasRef = db.collection("ideas")
 
-export const saveIdea = (iid, idea, price, uid) => {
+export const saveIdea = (iid, idea, price, quantity, uid) => {
   return async (dispatch) => {
     const timestamp = FirebaseTimestamp.now()
 
@@ -12,6 +12,7 @@ export const saveIdea = (iid, idea, price, uid) => {
       issueId: iid,
       idea: idea,
       price: price,
+      quantity: quantity,
       updated_at: timestamp,
       uid: uid
     }
