@@ -367,8 +367,40 @@ hr {
   color: #4b4b4b;
 }
 
-.idea-back-unit {
-  padding: 0.3rem 1rem;
+.idea-back-body {
+  text-align: start;
+  padding: 0.3rem 4rem;
+}
+
+@media screen and (max-width: 864px) {
+  .idea-back-body {
+    padding: 0.3rem 1rem;
+  }
+}
+
+.idea-back-price {
+  font-size: larger;
+  text-align: start;
+  padding: 0.3rem 4rem;
+  color: #00b2df;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 864px) {
+  .idea-back-price {
+    padding: 0.3rem 1rem;
+  }
+}
+
+.idea-buy-button {
+  padding: 0.3rem 6rem;
+  text-align: end;
+}
+
+@media screen and (max-width: 864px) {
+  .idea-buy-button {
+    padding: 0.5rem 1rem;
+  }
 }
 
 /*********** Promo gird ***********/

@@ -107,13 +107,13 @@ const ProductCard = (props) => {
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
-            <MenuItem
+            {/* <MenuItem
               onClick={() => {
                 editissue();
               }}
             >
               編集する
-            </MenuItem>
+            </MenuItem> */}
             <MenuItem
               onClick={() => {
                 deleteissue();

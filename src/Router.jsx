@@ -38,7 +38,7 @@ const Router = () => {
         <Route exact path={"/issues/:id"} component={IssueDetail} />
         <Route exact path={"/myissuelist"} component={MyIssueList} />
         <Route exact path={"/issue/edit"} component={IssueEdit} />
-        <Route exact path={"/issue/edit/:id"} component={IssueEdit} />
+        {/* <Route exact path={"/issue/edit/:id"} component={IssueEdit} /> */}
       </Auth>
     </Switch>
   );
