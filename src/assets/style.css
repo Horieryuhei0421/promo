@@ -372,12 +372,6 @@ hr {
   padding: 0.3rem 4rem;
 }
 
-@media screen and (max-width: 864px) {
-  .idea-back-body {
-    padding: 0.3rem 1rem;
-  }
-}
-
 .idea-back-price {
   font-size: larger;
   text-align: start;
@@ -386,21 +380,25 @@ hr {
   font-weight: 600;
 }
 
-@media screen and (max-width: 864px) {
-  .idea-back-price {
-    padding: 0.3rem 1rem;
-  }
-}
-
 .idea-buy-button {
   padding: 0.3rem 6rem;
   text-align: end;
 }
 
 @media screen and (max-width: 864px) {
+  .idea-back-body {
+    padding: 0.3rem 1rem;
+  }
+  .idea-back-price {
+    padding: 0.3rem 1rem;
+  }
   .idea-buy-button {
     padding: 0.5rem 1rem;
   }
+}
+
+.noIdeaMess {
+  padding-top: 30px;
 }
 
 /*********** Promo gird ***********/

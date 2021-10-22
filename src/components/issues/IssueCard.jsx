@@ -11,7 +11,6 @@ import { getUserId } from "../../reducks/users/selectors";
 import { IconButton, Menu, MenuItem } from "@material-ui/core";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { deleteIssue } from "../../reducks/issues/operations";
-import { theme } from "../../assets/theme";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -68,12 +67,12 @@ const ProductCard = (props) => {
 
   const images = props.images.length > 0 ? props.images : [{ path: NoImage }];
 
-  const editissue = () => {
-    if (props.uid === uid) {
-      dispatch(push("/issue/edit/" + props.id));
-      handleClose();
-    }
-  };
+  // const editissue = () => {
+  //   if (props.uid === uid) {
+  //     dispatch(push("/issue/edit/" + props.id));
+  //     handleClose();
+  //   }
+  // };
 
   const deleteissue = () => {
     if (props.uid === uid) {

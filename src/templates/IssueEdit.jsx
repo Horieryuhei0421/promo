@@ -1,11 +1,9 @@
-import React, { useCallback, useState, useEffect } from "react";
+import React, { useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserId } from "../reducks/users/selectors";
 import ImageArea from "../components/issues/ImageArea";
 import { TextInput, PrimaryButton } from "../components/UIkit";
 import { saveIssue } from "../reducks/issues/operations";
-import { push } from "connected-react-router";
-import { db } from "../firebase";
 
 const IssueEdit = () => {
   const dispatch = useDispatch();

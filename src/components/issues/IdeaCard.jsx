@@ -1,13 +1,7 @@
-import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { push } from "connected-react-router";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import { SubButton } from "../UIkit";
 
 const IssueCard = (props) => {
-  const dispatch = useDispatch();
-  const selector = useSelector((state) => state);
-
   const newprice = props.price.toLocaleString();
 
   return (
