@@ -32,7 +32,7 @@ export const fetchIssues = () => {
 
 
 
-export const saveIssue = (id, name, subHead, description, images, uid) => {
+export const saveIssue = (name, subHead, description, images, uid) => {
   return async (dispatch) => {
     const timestamp = FirebaseTimestamp.now()
 
@@ -45,12 +45,19 @@ export const saveIssue = (id, name, subHead, description, images, uid) => {
       uid: uid
     }
 
-    if (id === "") {
-      const ref = issuesRef.doc();
-      data.created_at = timestamp
-      id = ref.id;
-      data.id = id;
-    }
+    // if (id === "") {
+    //   const ref = issuesRef.doc();
+    //   data.created_at = timestamp
+    //   id = ref.id;
+    //   data.id = id;
+    // }
+
+
+    const ref = issuesRef.doc();
+    data.created_at = timestamp
+    const id = ref.id;
+    data.id = id;
+
 
     return issuesRef.doc(id).set(data, { merge: true })
       .then(() => {

@@ -12,11 +12,11 @@ const IssueEdit = () => {
   const selector = useSelector((state) => state);
   const uid = getUserId(selector);
 
-  let id = window.location.pathname.split("/issue/edit")[1];
-  if (id !== "") {
-    id = id.split("/")[1];
-    console.log(id);
-  }
+  // let id = window.location.pathname.split("/issue/edit")[1];
+  // if (id !== "") {
+  //   console.log(id);
+  //   id = id.split("/")[1];
+  // }
 
   const [name, setName] = useState(""),
     [subHead, setSubHead] = useState(""),
@@ -44,20 +44,20 @@ const IssueEdit = () => {
     [setSubHead]
   );
 
-  useEffect(() => {
-    if (id !== "") {
-      db.collection("issues")
-        .doc(id)
-        .get()
-        .then((snapshot) => {
-          const data = snapshot.data();
-          setName(data.name);
-          setSubHead(data.subHead);
-          setDescription(data.description);
-          setImages(data.images);
-        });
-    }
-  }, [id]);
+  // useEffect(() => {
+  //   if (id !== "") {
+  //     db.collection("issues")
+  //       .doc(id)
+  //       .get()
+  //       .then((snapshot) => {
+  //         const data = snapshot.data();
+  //         setName(data.name);
+  //         setSubHead(data.subHead);
+  //         setDescription(data.description);
+  //         setImages(data.images);
+  //       });
+  //   }
+  // }, [id]);
 
   return (
     <section>
@@ -100,10 +100,12 @@ const IssueEdit = () => {
             <div className="center">
               <PrimaryButton
                 label={"提案を募集する"}
+                // onClick={() =>
+                //   dispatch(
+                //     saveIssue(id, name, subHead, description, images, uid)
+                //   )
                 onClick={() =>
-                  dispatch(
-                    saveIssue(id, name, subHead, description, images, uid)
-                  )
+                  dispatch(saveIssue(name, subHead, description, images, uid))
                 }
               />
             </div>
