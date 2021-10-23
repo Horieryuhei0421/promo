@@ -9,6 +9,7 @@ export const deleteIssue = (id) => {
   return async (dispatch, getState) => {
     issuesRef.doc(id).delete()
       .then(() => {
+
         const prevIssues = getState().issues.list;
         const nextIssues = prevIssues.filter(issue => issue.id !== id)
         dispatch(deleteIssuesAction(nextIssues))

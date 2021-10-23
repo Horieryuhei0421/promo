@@ -3,7 +3,9 @@ import {
   combineReducers,
   applyMiddleware
 } from "redux";
-import { connectRouter, routerMiddleware } from "connected-react-router";
+import {
+  connectRouter, routerMiddleware
+} from "connected-react-router";
 import thunk from "redux-thunk";
 import { IssuesReducer } from "../issues/reducers";
 import { UsersReducer } from "../users/reducers";
