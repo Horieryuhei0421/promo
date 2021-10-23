@@ -1,8 +1,14 @@
 import React from "react";
 import { SubButton } from "../UIkit";
+import { orderIdea } from "../../reducks/ideas/operations";
+import { useSelector, useDispatch } from "react-redux";
+import { getUserId } from "../../reducks/users/selectors";
 
 const IssueCard = (props) => {
   const newprice = props.price.toLocaleString();
+  const selector = useSelector((state) => state);
+  const uid = getUserId(selector);
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -13,7 +19,14 @@ const IssueCard = (props) => {
         <div className="idea-buy-button">
           {props.quantity === 1 ? (
             <>
-              <SubButton label={"購入する"} />
+              <SubButton
+                label={"購入する"}
+                onClick={() =>
+                  dispatch(
+                    orderIdea(props.id, props.idea, props.price, props.quantity)
+                  )
+                }
+              />
             </>
           ) : (
             <>

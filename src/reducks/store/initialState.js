@@ -12,6 +12,7 @@ const initialState = {
     username: "",
     image: [],
     companyimage: [],
+    orders: [],
     profession: "",
     birthday: "",
     message: "",
