@@ -60,7 +60,8 @@ const IssueCard = (props) => {
                             props.id,
                             props.idea,
                             props.price,
-                            props.quantity
+                            props.quantity,
+                            props.uuid
                           )
                         )
                       }

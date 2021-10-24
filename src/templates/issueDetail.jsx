@@ -137,7 +137,9 @@ const IssueDetail = () => {
                   <PrimaryButton
                     label={"送信する"}
                     onClick={() =>
-                      dispatch(saveIdea(id, idea, price, quantity, uid))
+                      dispatch(
+                        saveIdea(id, idea, price, quantity, uid, issue.uid)
+                      )
                     }
                   />
                 </div>
