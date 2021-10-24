@@ -5,11 +5,15 @@ import { fetchIdeasAction } from "./actions";
 const ideasRef = db.collection("ideas")
 
 
-export const orderIdea = (id, idea, price, quantity) => {
+export const orderIdea = (id, idea, price, quantity, uuid) => {
   return async (dispatch, getState) => {
     const uid = getState().users.uid;
     const userRef = db.collection('users').doc(uid);
     const timestamp = FirebaseTimestamp.now();
+
+    if (uid !== uuid) {
+      return false
+    }
 
     // // 注文履歴に残す用
     // let ideas = [];
@@ -74,7 +78,7 @@ export const orderIdea = (id, idea, price, quantity) => {
 }
 
 
-export const saveIdea = (iid, idea, price, quantity, uid) => {
+export const saveIdea = (iid, idea, price, quantity, uid, uuid) => {
   return async (dispatch) => {
     const timestamp = FirebaseTimestamp.now()
 
@@ -84,7 +88,8 @@ export const saveIdea = (iid, idea, price, quantity, uid) => {
       price: price,
       quantity: quantity,
       updated_at: timestamp,
-      uid: uid
+      uid: uid,
+      uuid: uuid
     }
 
     const ref = ideasRef.doc();
