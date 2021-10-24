@@ -4,12 +4,16 @@ import { useDispatch } from "react-redux";
 import { fetchIssues } from "../../reducks/issues/operations";
 import { getIssues } from "../../reducks/issues/selectors";
 import { useSelector } from "react-redux";
+import { getUserId } from "../../reducks/users/selectors";
 
-const IssueList = () => {
+const MyIssues = () => {
   const dispatch = useDispatch();
   const selector = useSelector((state) => state);
   const issues = getIssues(selector);
+  const userId = getUserId(selector);
   const query = window.location.search;
+
+  const myIssue = issues.filter((issue) => issue.uid === userId);
 
   useEffect(() => {
     dispatch(fetchIssues());
@@ -18,9 +22,9 @@ const IssueList = () => {
   return (
     <div className="main-pop-flame">
       <section className="c-section-wrapin">
-        <div className="p-grid__row">
-          {issues.length > 0 &&
-            issues.map((issue) => (
+        {myIssue.length > 0 ? (
+          myIssue.map((issue) => (
+            <div className="p-grid__row">
               <IssueCard
                 key={issue.id}
                 id={issue.id}
@@ -29,11 +33,18 @@ const IssueList = () => {
                 subHead={issue.subHead}
                 images={issue.images}
               />
-            ))}
-        </div>
+            </div>
+          ))
+        ) : (
+          <>
+            <p className="noIssueMess">
+              現在あなたが募集している案件はありません
+            </p>
+          </>
+        )}
       </section>
     </div>
   );
 };
 
-export default IssueList;
+export default MyIssues;

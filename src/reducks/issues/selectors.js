@@ -7,3 +7,4 @@ export const getIssues = createSelector(
   [issuesSelector],
   state => state.list
 );
+

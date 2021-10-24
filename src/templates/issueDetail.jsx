@@ -1,8 +1,7 @@
 import { makeStyles } from "@material-ui/core";
 import React, { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { db, FirebaseTimestamp } from "../firebase";
-import { push } from "connected-react-router";
+import { db } from "../firebase";
 import IdeaList from "../components/issues/IdeaList";
 import ImageSwiper from "../components/issues/ImageSwiper";
 import { getUserId } from "../reducks/users/selectors";

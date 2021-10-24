@@ -18,7 +18,6 @@ import Box from "@mui/material/Box";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 import { IconButton, Menu, MenuItem } from "@material-ui/core";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
 import IconImage from "../assets/img/Icon_image.png";
 import NoImage from "../assets/img/No_image.png";
 
@@ -102,24 +101,34 @@ const CompanyPage = () => {
         <div>
           <div className="module-spacer--medium" />
           <div className="main-pop-flame">
-            <img
-              src={companyimages[0].path}
-              alt="companyImge"
-              width="250px"
-              className="main-setting-image"
-            />
-            <div className="main-setting-flame">
-              <div className="top-grid">
-                <p className="top-title">会社名:</p>
-                <p>{companyname}</p>
-                <p className="top-title">住所:</p>
-                <p>{companyaddress}</p>
-                <p className="top-title">電話番号:</p>
-                <p>{companytel}</p>
-                <p className="top-title">会社の詳細:</p>
-                <p>{companydescription}</p>
-              </div>
-            </div>
+            {companyname === "未記入" ? (
+              <>
+                <p className="noCompanyInfo">
+                  企業側機能を利用したい方は右下の青いボタンから企業情報を入力してください。
+                </p>
+              </>
+            ) : (
+              <>
+                <img
+                  src={companyimages[0].path}
+                  alt="companyImge"
+                  width="250px"
+                  className="main-setting-image"
+                />
+                <div className="main-setting-flame">
+                  <div className="top-grid">
+                    <p className="top-title">会社名:</p>
+                    <p>{companyname}</p>
+                    <p className="top-title">住所:</p>
+                    <p>{companyaddress}</p>
+                    <p className="top-title">電話番号:</p>
+                    <p>{companytel}</p>
+                    <p className="top-title">会社の詳細:</p>
+                    <p>{companydescription}</p>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
         <div className="module-spacer--medium" />
@@ -152,7 +161,7 @@ const CompanyPage = () => {
                   }}
                   style={{ fontSize: "1.2em" }}
                 >
-                  タスク一覧を見る
+                  Myタスク一覧を見る
                 </MenuItem>
                 <MenuItem
                   onClick={() => {
@@ -161,7 +170,7 @@ const CompanyPage = () => {
                   }}
                   style={{ fontSize: "1.2em" }}
                 >
-                  会社の情報を書く
+                  企業の情報を書く
                 </MenuItem>
               </Menu>
             </Fab>
