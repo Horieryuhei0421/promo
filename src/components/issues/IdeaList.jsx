@@ -9,7 +9,6 @@ const IdeaList = (props) => {
   const dispatch = useDispatch();
   const selector = useSelector((state) => state);
   const ideas = getIdeas(selector);
-
   const query = window.location.search;
 
   const newidea = ideas.filter((idea) => idea.issueId === props.issueId);
@@ -30,6 +29,7 @@ const IdeaList = (props) => {
               id={idea.id}
               idea={idea.idea}
               price={idea.price}
+              // uuid={props.uuid}
               quantity={idea.quantity}
             />
           ))

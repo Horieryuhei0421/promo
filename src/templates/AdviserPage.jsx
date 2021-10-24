@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from "react";
+import { React, useEffect } from "react";
 import {
   getUserName,
   getUserProfession,
@@ -56,6 +56,7 @@ const AdviserPage = () => {
         <div>
           <div className="module-spacer--medium" />
           <IssueList></IssueList>
+
           <div className="module-spacer--medium" />
           <div className="module-spacer--medium" />
         </div>

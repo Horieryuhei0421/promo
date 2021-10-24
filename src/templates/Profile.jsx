@@ -1,11 +1,8 @@
 import { React, useState, useCallback } from "react";
 import { getUserId } from "../reducks/users/selectors";
 import { useDispatch, useSelector } from "react-redux";
-import { push } from "connected-react-router";
 import { addUserSetting } from "../reducks/users/operations";
 import { AnImageArea, PrimaryButton, TextInput } from "../components/UIkit";
-import { FirebaseTimestamp } from "../firebase";
-import { textAlign } from "@mui/system";
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -114,6 +111,7 @@ const Profile = () => {
                 }
               />
             </div>
+            <div className="module-spacer--extra-small" />
             <p>※必須項目を記入した後、ボタンを押して下さい。</p>
           </div>
         </div>

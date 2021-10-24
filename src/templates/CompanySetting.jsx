@@ -1,10 +1,8 @@
 import { React, useState, useCallback } from "react";
 import { getUserId } from "../reducks/users/selectors";
 import { useDispatch, useSelector } from "react-redux";
-import { push } from "connected-react-router";
 import { addCompanySetting } from "../reducks/users/operations";
 import { AnImageArea, PrimaryButton, TextInput } from "../components/UIkit";
-import { FirebaseTimestamp } from "../firebase";
 
 const CompanySetting = () => {
   const dispatch = useDispatch();
@@ -93,7 +91,6 @@ const CompanySetting = () => {
               type={"text"}
               onChange={inputDescription}
             />
-
             <div className="module-spacer--medium" />
             <div className="center">
               <PrimaryButton
@@ -111,7 +108,8 @@ const CompanySetting = () => {
                   )
                 }
               />
-            </div>
+            </div>{" "}
+            <div className="module-spacer--extra-small" />
             <p>※必須項目を記入した後、ボタンを押して下さい。</p>
           </div>
         </div>

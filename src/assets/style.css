@@ -123,7 +123,7 @@
 }
 
 .u-text__headline {
-  color: #3894ff;
+  color: #00b2df;
   font-size: 1.8rem;
   font-weight: 600;
   margin: 0 auto 1rem auto;
@@ -396,6 +396,15 @@ hr {
   padding-top: 30px;
 }
 
+.noIssueMess {
+  padding-top: 15px;
+}
+
+.noCompanyInfo {
+  padding-top: 15px;
+  font-size: 18px;
+}
+
 .idea-title {
   font-weight: 600;
   font-size: 25px;
@@ -435,4 +444,11 @@ hr {
 .top-profile-grid > p {
   margin-top: 0;
   font-weight: bold;
+}
+
+/*********** modal ***********/
+
+.modal-grid {
+  text-align: center;
+  color: #686868;
 }
