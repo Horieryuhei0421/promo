@@ -50,7 +50,7 @@ const CompanyPage = () => {
     setAnchorEL(null);
   };
   const moveToEdit = () => {
-    if (companyname === "未記入") {
+    if (companyname === "未入力") {
       alert(
         "会社の情報を入力してからご利用ください。右下の青いボタンからご入力できます。"
       );
@@ -60,7 +60,7 @@ const CompanyPage = () => {
     }
   };
   const moveToList = () => {
-    if (companyname === "未記入") {
+    if (companyname === "未入力") {
       alert(
         "会社の情報を入力してからご利用ください。右下の青いボタンからご入力できます。"
       );
@@ -101,7 +101,7 @@ const CompanyPage = () => {
         <div>
           <div className="module-spacer--medium" />
           <div className="main-pop-flame">
-            {companyname === "未記入" ? (
+            {companyname === "未入力" ? (
               <>
                 <p className="noCompanyInfo">
                   企業側機能を利用したい方は右下の青いボタンから企業情報を入力してください。
@@ -145,24 +145,28 @@ const CompanyPage = () => {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem
-                  onClick={() => {
-                    moveToEdit();
-                    handleClose();
-                  }}
-                  style={{ fontSize: "1.2em" }}
-                >
-                  アイデアを募集する
-                </MenuItem>
-                <MenuItem
-                  onClick={() => {
-                    moveToList();
-                    handleClose();
-                  }}
-                  style={{ fontSize: "1.2em" }}
-                >
-                  Myタスク一覧を見る
-                </MenuItem>
+                {companyname !== "未入力" && (
+                  <MenuItem
+                    onClick={() => {
+                      moveToEdit();
+                      handleClose();
+                    }}
+                    style={{ fontSize: "1.2em" }}
+                  >
+                    アイデアを募集する
+                  </MenuItem>
+                )}
+                {companyname !== "未入力" && (
+                  <MenuItem
+                    onClick={() => {
+                      moveToList();
+                      handleClose();
+                    }}
+                    style={{ fontSize: "1.2em" }}
+                  >
+                    Myタスク一覧を見る
+                  </MenuItem>
+                )}
                 <MenuItem
                   onClick={() => {
                     dispatch(push("/companysetting"));

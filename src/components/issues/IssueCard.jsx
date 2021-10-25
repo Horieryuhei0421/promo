@@ -96,9 +96,11 @@ const ProductCard = (props) => {
             <Typography className={classes.farmname}>{props.name}</Typography>
             <Typography color="textSecondary">{props.subHead}</Typography>
           </div>
-          <IconButton onClick={handleClick} className={classes.menu}>
-            <MoreVertIcon />
-          </IconButton>
+          {props.uid === uid && (
+            <IconButton onClick={handleClick} className={classes.menu}>
+              <MoreVertIcon />
+            </IconButton>
+          )}
           <Menu
             id="menu-appbar"
             anchorEl={anchorEl}

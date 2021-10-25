@@ -93,7 +93,7 @@ const IssueDetail = () => {
                   <ImageSwiper images={issue.images} />
                 </div>
                 <div className={classes.detail}>
-                  <h2 className="u-text__headline">{issue.name}</h2>
+                  <h2 className="u-text__headline2">{issue.name}</h2>
                   <p>{issue.subHead}</p>
                   <div className="module-spacer--small" />
                   <p>{issue.description}</p>

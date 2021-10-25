@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { PrimaryButton, GreyButton } from "../UIkit";
+import { getUserId } from "../../reducks/users/selectors";
 
 const style = {
   position: "absolute",
@@ -20,6 +21,8 @@ const style = {
 };
 
 const IssueCard = (props) => {
+  const selector = useSelector((state) => state);
+  const uid = getUserId(selector);
   const newprice = props.price.toLocaleString();
   const dispatch = useDispatch();
   const [open, setOpen] = React.useState(false);
@@ -35,7 +38,9 @@ const IssueCard = (props) => {
         <div className="idea-buy-button">
           {props.quantity === 1 ? (
             <>
-              <SubButton label={"購入する"} onClick={handleOpen} />
+              {uid === props.uuid && (
+                <SubButton label={"購入する"} onClick={handleOpen} />
+              )}
               <Modal
                 open={open}
                 onClose={handleClose}
