@@ -123,7 +123,14 @@
 }
 
 .u-text__headline {
-  color: #ababab;
+  color: #a1a1a1;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0 auto 1rem auto;
+}
+
+.u-text__headline2 {
+  color: #00b2df;
   font-size: 1.8rem;
   font-weight: 600;
   margin: 0 auto 1rem auto;
@@ -369,14 +376,14 @@ hr {
 
 .idea-back-price {
   font-size: larger;
-  text-align: start;
-  padding: 0.3rem 4rem;
+  text-align: end;
+  padding: 0.3rem 5rem;
   color: #00b2df;
   font-weight: 600;
 }
 
 .idea-buy-button {
-  padding: 0.3rem 6rem;
+  padding: 0.3rem 5rem;
   text-align: end;
 }
 
@@ -398,6 +405,12 @@ hr {
 
 .noIssueMess {
   padding-top: 15px;
+}
+
+@media screen and (min-width: 500px) {
+  .noIssueMess {
+    display: none;
+  }
 }
 
 .noCompanyInfo {

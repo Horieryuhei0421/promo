@@ -22,9 +22,9 @@ const MyIssues = () => {
   return (
     <div className="main-pop-flame">
       <section className="c-section-wrapin">
-        {myIssue.length > 0 ? (
-          myIssue.map((issue) => (
-            <div className="p-grid__row">
+        <div className="p-grid__row">
+          {myIssue.length > 0 ? (
+            myIssue.map((issue) => (
               <IssueCard
                 key={issue.id}
                 id={issue.id}
@@ -33,15 +33,15 @@ const MyIssues = () => {
                 subHead={issue.subHead}
                 images={issue.images}
               />
-            </div>
-          ))
-        ) : (
-          <>
-            <p className="noIssueMess">
-              現在あなたが募集している案件はありません
-            </p>
-          </>
-        )}
+            ))
+          ) : (
+            <>
+              <p className="noIssueMess">
+                現在あなたが募集している案件はありません
+              </p>
+            </>
+          )}
+        </div>
       </section>
     </div>
   );

@@ -53,12 +53,10 @@ export const saveIssue = (name, subHead, description, images, uid) => {
     //   data.id = id;
     // }
 
-
     const ref = issuesRef.doc();
     data.created_at = timestamp
     const id = ref.id;
     data.id = id;
-
 
     return issuesRef.doc(id).set(data, { merge: true })
       .then(() => {

@@ -133,13 +133,13 @@ export const signUp = (username, email, password, confirmPassword) => {
             username: username,
             image: [],
             companyimage: [],
-            profession: "未記入",
-            birthday: "未記入",
-            message: "未記入",
-            companyname: "未記入",
-            companyaddress: "未記入",
-            companytel: "未記入",
-            companydescription: "未記入",
+            profession: "未入力",
+            birthday: "未入力",
+            message: "未入力",
+            companyname: "未入力",
+            companyaddress: "未入力",
+            companytel: "未入力",
+            companydescription: "未入力",
           };
 
           usersRef.doc(uid).set(userInitialData).then(async () => {
@@ -184,13 +184,13 @@ export const addCompanySetting = (companyname, companyaddress, companytel, compa
       return false
     }
     if (companyaddress === "") {
-      companyaddress = "未記入"
+      companyaddress = "未入力"
     }
     if (companytel === "") {
-      companytel = "未記入"
+      companytel = "未入力"
     }
     if (companydescription === "") {
-      companydescription = "未記入"
+      companydescription = "未入力"
     }
     // const timestamp = FirebaseTimestamp.now()
 
@@ -222,13 +222,13 @@ export const addUserSetting = (username, profession, birthday, message, image, u
     }
 
     if (profession === "") {
-      profession = "未記入"
+      profession = "未入力"
     }
     if (birthday === "") {
-      birthday = "未記入"
+      birthday = "未入力"
     }
     if (message === "") {
-      message = "未記入"
+      message = "未入力"
     }
 
     // const timestamp = FirebaseTimestamp.now()
