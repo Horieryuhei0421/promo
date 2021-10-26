@@ -1,10 +1,27 @@
-import { signInAction, signOutAction, companyAction, userAction } from "./actions";
+import { signInAction, signOutAction, companyAction, userAction, fetchOrdersHistoryAction } from "./actions";
 import { push } from "connected-react-router";
 import { auth, db, FirebaseTimestamp } from "../../firebase/index"
-// import { useDispatch, useSelector } from "react-redux";
-// import { getUserId } from "./selectors";
+
 
 const usersRef = db.collection('users')
+
+
+export const fetchOrdersHistory = () => {
+  return async (dispatch, getState) => {
+    const uid = getState().users.uid;
+    const list = []
+
+    db.collection("users").doc(uid).collection('orders')
+      .orderBy('updated_at', "desc").get()
+      .then((snapshots) => {
+        snapshots.forEach(snapshot => {
+          const data = snapshot.data();
+          list.push(data)
+        });
+        dispatch(fetchOrdersHistoryAction(list))
+      })
+  }
+}
 
 
 export const listenAuthState = () => {
@@ -27,6 +44,7 @@ export const listenAuthState = () => {
               username: data.username,
               image: data.image,
               companyimage: data.companyimage,
+              orders: data.orders,
               profession: data.profession,
               birthday: data.birthday,
               message: data.message,
@@ -65,6 +83,7 @@ export const signIn = (email, password) => {
                 username: data.username,
                 image: data.image,
                 companyimage: data.companyimage,
+                orders: data.orders,
                 profession: data.profession,
                 birthday: data.birthday,
                 message: data.message,
@@ -133,6 +152,7 @@ export const signUp = (username, email, password, confirmPassword) => {
             username: username,
             image: [],
             companyimage: [],
+            orders: [],
             profession: "未入力",
             birthday: "未入力",
             message: "未入力",
@@ -166,16 +186,6 @@ export const signOut = () => {
   }
 };
 
-
-// export const addCompanySetting = (companyname, uid) => {
-//   return async (dispatch, getState) => {
-//     const uid = getState().users.uid;
-//     const companyRef = db.collection('users').doc(uid).collection('company').doc();
-//     addedcompany['companyId'] = companyRef.id;
-//     await companyRef.set(addedcompany);
-//     dispatch(push('/companypage'))
-//   }
-// }
 
 export const addCompanySetting = (companyname, companyaddress, companytel, companydescription, companyimage, uid) => {
   return async (dispatch, getState) => {
@@ -251,3 +261,5 @@ export const addUserSetting = (username, profession, birthday, message, image, u
       })
   }
 }
+
+

@@ -70,6 +70,7 @@ const CompanyPage = () => {
     }
   };
 
+  console.log(selector);
   return (
     <div>
       <div className="main-back">

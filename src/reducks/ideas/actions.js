@@ -5,3 +5,11 @@ export const fetchIdeasAction = (ideas) => {
     payload: ideas
   }
 }
+
+// export const SAVE_IDEA = "SAVE_IDEA";
+// export const saveOderAction = (data) => {
+//   return {
+//     type: "SAVE_IDEA",
+//     payload: data
+//   }
+// }

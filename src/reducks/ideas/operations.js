@@ -16,7 +16,7 @@ export const orderIdea = (id, idea, price, quantity, uuid) => {
     }
 
     // // 注文履歴に残す用
-    // let ideas = [];
+    let ideas = [];
     // // 売り切れ時のモーダルの文言に必要
     let soldOutIdeas = [];
 
@@ -32,13 +32,13 @@ export const orderIdea = (id, idea, price, quantity, uuid) => {
       return snapshot
     }
 
-    // ideas.push({
-    //   id: snapshot.id,
-    //   idea: snapshot.idea,
-    //   issue: snapshot.issueId,
-    //   price: snapshot.price,
-    //   uid: snapshot.uid
-    // });
+    ideas.push({
+      id: snapshot.id,
+      idea: snapshot.idea,
+      issue: snapshot.issueId,
+      price: snapshot.price,
+      uid: snapshot.uid
+    });
 
     batch.update(ideasRef.doc(id), { quantity: 0 });
 
@@ -51,8 +51,10 @@ export const orderIdea = (id, idea, price, quantity, uuid) => {
 
       batch.commit()
         .then(() => {
-          // 注文履歴データを作成
           const orderRef = userRef.collection('orders').doc();
+
+          // 注文履歴データを作成
+          // const userRef2 = userRef.orders;
           quantity = 0
 
           const history = {
@@ -99,6 +101,7 @@ export const saveIdea = (iid, idea, price, quantity, uid, uuid) => {
 
     return ideasRef.doc(id).set(data, { merge: true })
       .then(() => {
+        // dispatch(saveIdeaAction(data))
         dispatch(push("/issues/" + iid))
         window.location.reload();
       })
