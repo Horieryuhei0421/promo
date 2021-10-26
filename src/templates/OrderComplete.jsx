@@ -28,7 +28,6 @@ const OrderComplete = () => {
         <div className="main-pop-flame3">
           <Modal
             open={open}
-            onClose={handleClose}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
           >
