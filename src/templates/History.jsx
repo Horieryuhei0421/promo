@@ -1,59 +1,47 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getOrdersHistory } from "../reducks/users/selectors";
+import { fetchOrdersHistory } from "../reducks/users/operations";
+import { makeStyles } from "@material-ui/styles";
 import { push } from "connected-react-router";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
-import { PrimaryButton } from "../components/UIkit";
-import { GreyButton } from "../components/UIkit";
 
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 350,
-  bgcolor: "background.paper",
-  border: "4px solid #00b2df",
-  boxShadow: 24,
-  p: 4,
-};
+const useStyles = makeStyles((theme) => ({
+  orderList: {
+    background: theme.palette.grey["100"],
+    margin: "0 auto",
+    padding: 32,
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
+    [theme.breakpoints.up("md")]: {
+      width: 768,
+    },
+  },
+}));
 
 const History = () => {
+  const classes = useStyles();
   const dispatch = useDispatch();
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const selector = useSelector((state) => state);
+  const orders = getOrdersHistory(selector);
+
+  useEffect(() => {
+    dispatch(fetchOrdersHistory());
+  }, []);
 
   return (
-    <>
-      <div className="c-section-container">
-        <h2 className="u-text-center u-text__headline">購入履歴のページ</h2>
-        <button onClick={() => dispatch(push("/adviserpage"))}>
-          ホームページへ
-        </button>
-      </div>
-      <Button onClick={handleOpen}>Open modal</Button>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <div className="modal-grid">
-          <Box sx={style}>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-              購入を確定しますか？
-            </Typography>
-            <div className="module-spacer--extra-small" />
-            <PrimaryButton label={"購入する"} />
-            <div className="module-spacer--extra-extra-small" />
-            <GreyButton label={"キャンセルする"} />
-          </Box>
-        </div>
-      </Modal>
-    </>
+    <section className="c-section-wrapin">
+      {orders.length > 0 &&
+        orders.map((order) => (
+          <>
+            <p>{order.idea}</p>
+            <p>{order.price}</p>
+            <button onClick={() => dispatch(push("/issues/" + order.issueId))}>
+              こちらの商品へ
+            </button>
+          </>
+        ))}
+    </section>
   );
 };
 

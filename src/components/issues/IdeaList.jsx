@@ -31,6 +31,7 @@ const IdeaList = (props) => {
               price={idea.price}
               uuid={idea.uuid}
               quantity={idea.quantity}
+              issueId={idea.issueId}
             />
           ))
         ) : (

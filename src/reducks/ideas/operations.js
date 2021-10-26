@@ -5,7 +5,7 @@ import { fetchIdeasAction } from "./actions";
 const ideasRef = db.collection("ideas")
 
 
-export const orderIdea = (id, idea, price, quantity, uuid) => {
+export const orderIdea = (id, idea, price, quantity, uuid, issueId) => {
   return async (dispatch, getState) => {
     const uid = getState().users.uid;
     const userRef = db.collection('users').doc(uid);
@@ -58,6 +58,7 @@ export const orderIdea = (id, idea, price, quantity, uuid) => {
           quantity = 0
 
           const history = {
+            issueId: issueId,
             ideaId: id,
             price: price,
             created_at: timestamp,
