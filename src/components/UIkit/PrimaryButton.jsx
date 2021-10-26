@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) =>
       color: "#00c8fa",
       fontSize: 18,
       height: 48,
-      width: 240,
+      width: 170,
       border: "3px solid #00c8fa",
     },
   })

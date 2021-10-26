@@ -16,6 +16,7 @@ import {
   Profile,
   CheckList,
   MyIssueList,
+  OrderComplete,
 } from "./templates";
 import Auth from "./Auth";
 
@@ -38,6 +39,11 @@ const Router = () => {
         <Route exact path={"/issues/:id"} component={IssueDetail} />
         <Route exact path={"/myissuelist"} component={MyIssueList} />
         <Route exact path={"/issue/edit"} component={IssueEdit} />
+        <Route
+          exact
+          path={"/issues/order/complete"}
+          component={OrderComplete}
+        />
         {/* <Route exact path={"/issue/edit/:id"} component={IssueEdit} /> */}
       </Auth>
     </Switch>

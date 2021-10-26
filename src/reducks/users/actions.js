@@ -8,6 +8,7 @@ export const signInAction = (userState) => {
       uid: userState.uid,
       username: userState.username,
       image: userState.image,
+      orders: userState.orders,
       profession: userState.profession,
       birthday: userState.birthday,
       message: userState.message,
@@ -64,8 +65,6 @@ export const userAction = (userState) => {
 //   }
 // };
 
-
-
 export const SIGN_OUT = "SIGN_OUT";
 export const signOutAction = () => {
   return {
@@ -85,3 +84,23 @@ export const signOutAction = () => {
     }
   }
 }
+
+export const SAVE_ORDER = "SAVE_ORDER";
+export const saveOrderAction = (data) => {
+  return {
+    type: "SAVE_ORDER",
+    payload: {
+      orders: data.orders,
+
+    }
+  }
+}
+
+export const FETCH_ORDERS_HISTORY = "FETCH_ORDERS_HISTORY";
+export const fetchOrdersHistoryAction = (history) => {
+  return {
+    type: "FETCH_ORDERS_HISTORY",
+    payload: history
+  }
+}
+

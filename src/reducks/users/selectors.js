@@ -12,6 +12,12 @@ export const getUserId = createSelector(
   state => state.uid
 )
 
+export const getUserOrders = createSelector(
+  [usersSelector],
+  state => state.orders
+)
+
+
 export const getUserName = createSelector(
   [usersSelector],
   state => state.username
@@ -36,12 +42,10 @@ export const getUserImage = createSelector(
   [usersSelector],
   state => state.image
 )
-
 export const getCompanyName = createSelector(
   [usersSelector],
   state => state.companyname
 )
-
 export const getCompanyAddress = createSelector(
   [usersSelector],
   state => state.companyaddress
@@ -58,3 +62,8 @@ export const getCompanyImage = createSelector(
   [usersSelector],
   state => state.companyimage
 )
+
+export const getOrdersHistory = createSelector(
+  [usersSelector],
+  state => state.orders
+);

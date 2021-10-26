@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#636363",
     fontSize: 18,
     height: 48,
-    width: 240,
+    width: 170,
   },
 }));
 

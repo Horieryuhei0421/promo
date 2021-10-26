@@ -25,6 +25,7 @@ const AdviserPage = () => {
   const query = window.location.search;
   useEffect(() => {}, [query]);
 
+  console.log(selector);
   return (
     <div>
       <div className="main-back">
