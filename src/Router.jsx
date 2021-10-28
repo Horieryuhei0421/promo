@@ -23,7 +23,7 @@ import Auth from "./Auth";
 const Router = () => {
   return (
     <Switch>
-      <Route exact path={"/top"} component={Top} />
+      <Route exact path={"/"} component={Top} />
       <Route exact path={"/signup"} component={SignUp} />
       <Route exact path={"/signin"} component={SignIn} />
       <Route exact path={"/signin/reset"} component={Reset} />

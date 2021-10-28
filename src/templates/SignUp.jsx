@@ -93,6 +93,8 @@ const SignUp = () => {
                 dispatch(signUp(username, email, password, confirmPassword))
               }
             />
+            <div className="module-spacer--medium" />
+
             <p onClick={() => dispatch(push("/signin"))}>
               アカウントをお持ちの方はこちらから
             </p>

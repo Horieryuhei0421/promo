@@ -24,6 +24,7 @@
   padding: 0 0.5rem;
   text-align: center;
   width: 100%;
+  min-height: 90vh;
 }
 
 .c-section-container {
@@ -202,7 +203,7 @@ hr {
   font-weight: bold;
   border-radius: 7px;
   background-color: #e0e0e0;
-  box-shadow: inset 10px 10px 22px #c9c9c9, inset -10px -10px 10px #ffffff;
+  box-shadow: inset 10px 10px 10px #cbcbcb, inset -10px -10px 10px #ffffff;
   margin: 0em 8em;
   min-height: 30vh;
 }
@@ -363,7 +364,7 @@ hr {
   padding: 1rem 1rem;
   border-radius: 3px;
   background-color: #f4f4f4;
-  box-shadow: inset -6px -6px 10px #cfcfcf, inset 6px 6px 10px #ffffff;
+  box-shadow: inset -6px -6px 9px #c5c5c5, inset 6px 6px 9px #ffffff;
   margin: 1em 0em;
   font-style: inherit;
   color: #4b4b4b;
@@ -465,3 +466,5 @@ hr {
   text-align: center;
   color: #686868;
 }
+
+/*********** genaralcard ***********/

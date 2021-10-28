@@ -40,7 +40,7 @@ const MyIssueList = () => {
           </div>
         </div>
         <div>
-          <h2 className="top-switch">マイタスク一覧</h2>
+          <h2 className="top-switch">My task</h2>
         </div>
         <div>
           <div className="module-spacer--medium" />
