@@ -55,7 +55,7 @@ export const listenAuthState = () => {
             }))
           })
       } else {
-        dispatch(push('/top'))
+        dispatch(push('/'))
       }
     })
   }

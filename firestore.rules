@@ -6,10 +6,22 @@ service cloud.firestore {
      allow create;
      allow update: if request.auth.uid == userId;
      allow delete: if request.auth.uid == userId;
+      	match /orders/{ordersId} {
+     		allow read: if request.auth.uid == userId;
+     		allow write: if request.auth.uid == userId;
+    	}
     }
     match /issues/{issueId} {
      allow read: if request.auth.uid != null;
      allow write: if request.auth.uid != null;
+     allow update: if request.auth.uid == issueId.uid;
+     allow delete: if request.auth.uid == issueId.uid;
+    }
+    match /ideas/{ideasId} {
+     		allow read: if request.auth.uid != null;
+     		allow write: if request.auth.uid != null;
+     		allow update: if request.auth.uid == ideasId.uid;
+     		allow delete: if request.auth.uid == ideasId.uid;
     }
   }
 }
