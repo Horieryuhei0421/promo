@@ -1,11 +1,11 @@
 import { React, useEffect } from "react";
-
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import MyIssues from "../components/issues/MyIssues";
 import { fetchIdeas } from "../reducks/ideas/operations";
 import { getIdeas } from "../reducks/ideas/selectors";
 import { getUserId } from "../reducks/users/selectors";
+import GeneralCard from "../components/UIkit/GeneralCard";
 
 const Sales = () => {
   const dispatch = useDispatch();
@@ -24,18 +24,33 @@ const Sales = () => {
   }, [query]);
 
   return (
-    <div>
-      <div className="main-back">
-        <div>
-          {newmyidea.length > 0 ? (
-            newmyidea.map((idea) => <p>{idea.idea}</p>)
-          ) : (
+    <div className="main-back">
+      <div className="module-spacer--medium" />
+      <div className="main-pop-flame2">
+        <h2 className="idea-title">売り上げ一覧</h2>
+
+        {newmyidea.length > 0 ? (
+          newmyidea.map((order) => (
             <>
-              <p className="noIdeaMess">届いているアイデアがありません</p>
+              <GeneralCard
+                idea={order.idea}
+                price={order.price}
+                issueId={order.issueId}
+              />
             </>
-          )}
-        </div>
+          ))
+        ) : (
+          <>
+            <div>
+              <div className="module-spacer--medium" />
+              <div className="module-spacer--medium" />
+
+              <p>購入された提案がありません</p>
+            </div>
+          </>
+        )}
       </div>
+      <div className="module-spacer--medium" />
     </div>
   );
 };

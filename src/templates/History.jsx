@@ -10,6 +10,7 @@ const History = () => {
   const dispatch = useDispatch();
   const selector = useSelector((state) => state);
   const orders = getOrdersHistory(selector);
+  // const orders = 0;
 
   useEffect(() => {
     dispatch(fetchOrdersHistory());
@@ -17,8 +18,10 @@ const History = () => {
 
   return (
     <div className="main-back">
-      <section className="c-section-wrapin">
-        {orders.length > 0 &&
+      <div className="module-spacer--medium" />
+      <div className="main-pop-flame2">
+        <h2 className="idea-title">購入履歴</h2>
+        {orders.length > 0 ? (
           orders.map((order) => (
             <>
               <GeneralCard
@@ -27,8 +30,19 @@ const History = () => {
                 issueId={order.issueId}
               />
             </>
-          ))}
-      </section>
+          ))
+        ) : (
+          <>
+            <div>
+              <div className="module-spacer--medium" />
+              <div className="module-spacer--medium" />
+
+              <p>購入した提案がありません</p>
+            </div>
+          </>
+        )}
+      </div>
+      <div className="module-spacer--medium" />
     </div>
   );
 };
