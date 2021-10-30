@@ -7,13 +7,18 @@ const GeneralCard = (props) => {
 
   return (
     <>
-      <>
-        <p>{props.idea}</p>
-        <p>{props.price}</p>
-        <button onClick={() => dispatch(push("/issues/" + props.issueId))}>
+      <div className="idea-back">
+        <p className="idea-back-body">{props.idea}</p>
+        <p className="idea-back-price">{props.price}</p>
+        <hr />
+
+        <p
+          className="idea-back-to"
+          onClick={() => dispatch(push("/issues/" + props.issueId))}
+        >
           こちらの商品へ
-        </button>
-      </>
+        </p>
+      </div>
     </>
   );
 };
