@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { db } from "../firebase";
 import IdeaList from "../components/issues/IdeaList";
 import ImageSwiper from "../components/issues/ImageSwiper";
+import { push } from "connected-react-router";
 import { getUserId } from "../reducks/users/selectors";
 import { saveIdea } from "../reducks/ideas/operations";
 import { PrimaryButton, GreyButton, TextInput } from "../components/UIkit";
@@ -87,6 +88,9 @@ const IssueDetail = () => {
       <div className="main-back">
         <div className="main-pop-flame3">
           <section className="c-section-wrapin">
+            <h1 onClick={() => dispatch(push("/adviserpage"))} className="batu">
+              ×
+            </h1>
             {issue && (
               <div className="p-grid__row">
                 <div className={classes.sliderBox}>

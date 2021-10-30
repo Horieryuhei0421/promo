@@ -183,6 +183,27 @@ hr {
 }
 /*********** Promo  ***********/
 
+.batu {
+  color: #979797;
+  text-align: end;
+  font-size: xx-large;
+  font-weight: bolder;
+  padding-right: 6%;
+}
+@media screen and (min-width: 850px) {
+  .batu {
+    padding-right: 20%;
+  }
+}
+
+.batu2 {
+  color: #979797;
+  text-align: end;
+  font-size: xx-large;
+  font-weight: bolder;
+  padding-right: 1rem;
+}
+
 .body-background {
   background: #e0e0e0;
   text-align: center;
@@ -221,7 +242,7 @@ hr {
 .main-pop-flame2 {
   margin: 0 auto;
   max-width: 575px;
-  padding: 4rem 2rem;
+  padding: 2rem 2rem;
   background-color: #e9e9e9;
   height: auto;
   width: calc(100% - 2rem);
@@ -232,7 +253,7 @@ hr {
 
 .main-pop-flame3 {
   background-color: #f4f4f4;
-  padding: 4em 0em;
+  padding: 3em 0em;
   min-height: 90vh;
 }
 
