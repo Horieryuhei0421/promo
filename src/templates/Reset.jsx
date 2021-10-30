@@ -21,6 +21,8 @@ const Reset = () => {
         <h2 className="u-text-center u-text__headline">パスワードのリセット</h2>
         <div className="main-pop-flame2">
           <div className="module-spacer--medium" />
+          <div className="module-spacer--medium" />
+          <div className="module-spacer--medium" />
           <TextInput
             fullWidth={true}
             label={"メールアドレス"}
@@ -31,7 +33,6 @@ const Reset = () => {
             type={"email"}
             onChange={inputEmail}
           />
-
           <div className="module-spacer--medium" />
           <div className="center">
             <PrimaryButton

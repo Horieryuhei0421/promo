@@ -5,6 +5,7 @@ import MyIssues from "../components/issues/MyIssues";
 import { fetchIdeas } from "../reducks/ideas/operations";
 import { getIdeas } from "../reducks/ideas/selectors";
 import { getUserId } from "../reducks/users/selectors";
+import { push } from "connected-react-router";
 import GeneralCard from "../components/UIkit/GeneralCard";
 
 const Sales = () => {
@@ -16,6 +17,7 @@ const Sales = () => {
 
   const myidea = ideas.filter((idea) => idea.uuid === uid);
   const newmyidea = myidea.filter((newidea) => newidea.quantity === 0);
+  // const newmyidea = 0;
 
   console.log(newmyidea);
 
@@ -27,6 +29,9 @@ const Sales = () => {
     <div className="main-back">
       <div className="module-spacer--medium" />
       <div className="main-pop-flame2">
+        <h1 onClick={() => dispatch(push("/adviserpage"))} className="batu2">
+          ×
+        </h1>
         <h2 className="idea-title">売り上げ一覧</h2>
 
         {newmyidea.length > 0 ? (

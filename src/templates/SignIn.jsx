@@ -29,6 +29,7 @@ const SignIn = () => {
         <h2 className="u-text-center u-text__headline">サインイン</h2>
         <div className="main-pop-flame2">
           <div className="module-spacer--medium" />
+          <div className="module-spacer--medium" />
           <TextInput
             fullWidth={true}
             label={"メールアドレス"}
@@ -49,7 +50,6 @@ const SignIn = () => {
             type={"password"}
             onChange={inputPassword}
           />
-
           <div className="module-spacer--medium" />
           <div className="center">
             <PrimaryButton

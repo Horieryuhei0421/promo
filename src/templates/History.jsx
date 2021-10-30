@@ -20,6 +20,9 @@ const History = () => {
     <div className="main-back">
       <div className="module-spacer--medium" />
       <div className="main-pop-flame2">
+        <h1 onClick={() => dispatch(push("/adviserpage"))} className="batu2">
+          ×
+        </h1>
         <h2 className="idea-title">購入履歴</h2>
         {orders.length > 0 ? (
           orders.map((order) => (
