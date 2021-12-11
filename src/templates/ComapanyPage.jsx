@@ -89,7 +89,7 @@ const CompanyPage = () => {
           </div>
         </div>
         <div>
-          <h1 className="top-switch">Company</h1>
+          <h1 className="top-switch">With problem</h1>
           <div>
             <Switch
               checked={true}

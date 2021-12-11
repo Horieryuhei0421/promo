@@ -60,20 +60,6 @@ const ClosableDrawer = (props) => {
     },
     {
       func: selectMenu,
-      label: "通知",
-      icon: <img src={notice_icon} width={22} />,
-      id: "notice",
-      value: "/notice",
-    },
-    {
-      func: selectMenu,
-      label: "チェックリスト",
-      icon: <img src={check_icon} width={22} />,
-      id: "checklist",
-      value: "/checklist",
-    },
-    {
-      func: selectMenu,
       label: "売上一覧",
       icon: <img src={profit_icon} width={22} />,
       id: "sales",
@@ -92,6 +78,13 @@ const ClosableDrawer = (props) => {
       icon: <Person />,
       id: "profile",
       value: "/profile",
+    },
+    {
+      func: selectMenu,
+      label: "お問い合わせ",
+      icon: <img src={check_icon} width={22} />,
+      id: "inquiry",
+      value: "/inquiry",
     },
   ];
 
