@@ -263,3 +263,15 @@ export const addUserSetting = (username, profession, birthday, message, image, u
 }
 
 
+//uidはgetStateで撮ってきたuserId,IssueIdは対象問題のid 
+export const favoriteSet = (uid, issueId) => {
+  return async (dispatch) => {
+    const timestamp = FirebaseTimestamp.now()
+
+    const data = {
+      uid: uid,
+      issueId: issueId
+    }
+
+  }
+}

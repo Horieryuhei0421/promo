@@ -14,7 +14,7 @@ import {
   Notice,
   History,
   Profile,
-  CheckList,
+  Inquiry,
   MyIssueList,
   OrderComplete,
 } from "./templates";
@@ -32,7 +32,7 @@ const Router = () => {
         <Route exact path={"/sales"} component={Sales} />
         <Route exact path={"/notice"} component={Notice} />
         <Route exact path={"/profile"} component={Profile} />
-        <Route exact path={"/checklist"} component={CheckList} />
+        <Route exact path={"/inquiry"} component={Inquiry} />
         <Route exact path={"/history"} component={History} />
         <Route exact path={"/companypage"} component={ComapanyPage} />
         <Route exact path={"/companysetting"} component={CompanySetting} />
