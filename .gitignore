@@ -5,6 +5,10 @@
 /.pnp
 .pnp.js
 /src/templates/Inquiry.jsx
+/Inquiry.jsx
+Inquiry.jsx
+
+
 
 # testing
 /coverage
