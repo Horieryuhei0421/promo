@@ -2,7 +2,6 @@ import React, { useState, useCallback } from "react";
 import { makeStyles } from "@material-ui/styles";
 import { AppBar } from "@material-ui/core";
 import { Toolbar } from "@material-ui/core";
-import logo from "../../assets/img/header_cat.png";
 import { useDispatch, useSelector } from "react-redux";
 import { getSignedIn } from "../../reducks/users/selectors";
 import { push } from "connected-react-router";
