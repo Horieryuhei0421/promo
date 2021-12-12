@@ -43,14 +43,19 @@ const Inquiry = () => {
         "問い合わせ内容：\n" +
         form,
     };
+
+    // const payload = {
+    //   text: "これは、チャンネル内のテキスト行です。そしてもう1つテキスト行があります。",
+    // };
+
     const url =
-      "https://hooks.slack.com/services/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";
+      "https://hooks.slack.com/services/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";
 
     fetch(url, {
       method: "post",
       body: JSON.stringify(payload),
     }).then(() => {
-      alert("送信が完了しました。追ってご連絡します！");
+      alert("送信が完了しました。");
       dispatch(push("/adviserpage"));
     });
   };
