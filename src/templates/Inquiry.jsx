@@ -2,7 +2,6 @@ import React, { useState, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { PrimaryButton, TextInput } from "../components/UIkit";
 import { push } from "connected-react-router";
-import InquiryConst from "../../build/InquiryConst";
 
 const Inquiry = () => {
   const dispatch = useDispatch();
@@ -49,7 +48,10 @@ const Inquiry = () => {
     //   text: "これは、チャンネル内のテキスト行です。そしてもう1つテキスト行があります。",
     // };
 
-    fetch(InquiryConst, {
+    const url =
+      "https://hooks.slack.com/services/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";
+
+    fetch(url, {
       method: "post",
       body: JSON.stringify(payload),
     }).then(() => {
