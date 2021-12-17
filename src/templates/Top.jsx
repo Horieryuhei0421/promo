@@ -20,16 +20,19 @@ const Reset = () => {
               />
             </div>
             <div className="module-spacer--medium" />
-
-            <div className="center">
-              <PrimaryButton
-                label={"sign in"}
-                onClick={() => dispatch(push("/signin"))}
-              />
-              <GreyButton
-                label={"sign up"}
-                onClick={() => dispatch(push("/signup"))}
-              />
+            <div className="button_frame">
+              <div>
+                <PrimaryButton
+                  label={"sign in"}
+                  onClick={() => dispatch(push("/signin"))}
+                />
+              </div>
+              <div className="button_unit">
+                <GreyButton
+                  label={"sign up"}
+                  onClick={() => dispatch(push("/signup"))}
+                />
+              </div>
             </div>
           </div>
           <div className="top_right_frame">
@@ -60,14 +63,18 @@ const Reset = () => {
             <div className="module-spacer--medium" />
             <div className="module-spacer--medium" />
             <div className="center2">
-              <PrimaryButton
-                label={"sign in"}
-                onClick={() => dispatch(push("/signin"))}
-              />
-              <GreyButton
-                label={"sign up"}
-                onClick={() => dispatch(push("/signup"))}
-              />
+              <div>
+                <PrimaryButton
+                  label={"sign in"}
+                  onClick={() => dispatch(push("/signin"))}
+                />
+              </div>
+              <div className="button_unit">
+                <GreyButton
+                  label={"sign up"}
+                  onClick={() => dispatch(push("/signup"))}
+                />
+              </div>
             </div>
           </div>
         </div>
