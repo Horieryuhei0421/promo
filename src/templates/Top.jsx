@@ -37,7 +37,7 @@ const Reset = () => {
           </div>
           <div className="top_right_frame">
             <div className="top_right1">
-              <p>企業に関する知識不足や</p>
+              <p>起業に関する知識不足や</p>
               <p>経営に困った方が</p>
               <p>このアプリで手軽に解決！</p>
             </div>
@@ -53,12 +53,12 @@ const Reset = () => {
             </div>
             <div className="module-spacer--medium" />
             <div className="top_right3">
-              <p>いざ企業をしようと思い行動しようとしても</p>
+              <p>いざ起業をしようと思い行動しようとしても</p>
               <p>最初に何をすればいいのか分からない…</p>
               <p>経営がうまくいかない、何をすればいいんだ…</p>
               <p>そんな人が「Promo.」を使って有識者から</p>
-              <p>知識やアイデアを買い取ることで</p>
-              <p>これまでになかった考えをもとに一気に前へ進める！</p>
+              <p>知識・アイデアを買い取ることで</p>
+              <p>これまでになかった考えをもとに前へ進める！</p>
             </div>
             <div className="module-spacer--medium" />
             <div className="module-spacer--medium" />
